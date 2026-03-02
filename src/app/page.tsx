@@ -92,11 +92,21 @@ export default function Home() {
 
             {/* Botones responsivos (full width en móvil) */}
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <Link href="#contacto" className="group bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold text-center transition-all shadow-lg flex items-center justify-center gap-3">
+              <Link 
+                href="#contacto" 
+                className="group bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold text-center transition-all shadow-lg flex items-center justify-center gap-3"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Auditoría Gratis
                 <Target className="group-hover:scale-110 transition-transform" size={20} />
               </Link>
-              <Link href="#servicios" className="px-8 py-4 rounded-xl font-bold text-white border border-white/10 hover:bg-white/5 text-center transition-all">
+              <Link 
+                href="#servicios" 
+                className="px-8 py-4 rounded-xl font-bold text-white border border-white/10 hover:bg-white/5 text-center transition-all"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Soluciones
               </Link>
             </div>
@@ -208,7 +218,12 @@ export default function Home() {
             </h2>
             <p className="text-gray-500 font-mono text-xs mt-2">{">"} Cargando repositorios de alto rendimiento...</p>
           </div>
-          <Link href="https://github.com/merloyflores" className="text-blue-500 font-bold text-xs hover:underline tracking-widest uppercase">
+          <Link 
+            href="https://github.com/merloyflores" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 font-bold text-xs hover:underline tracking-widest uppercase"
+          >
             Ver todo en GitHub _
           </Link>
         </div>
@@ -234,7 +249,12 @@ export default function Home() {
                   <span key={tag} className="text-[10px] font-bold text-gray-500 border border-white/10 px-2 py-1 rounded">#{tag}</span>
                 ))}
               </div>
-              <Link href="https://github.com/merloyflores/CireliaStore" className="inline-flex items-center gap-2 text-blue-500 font-black text-xs uppercase tracking-widest hover:gap-4 transition-all">
+              <Link 
+                href="https://github.com/merloyflores/CireliaStore" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-blue-500 font-black text-xs uppercase tracking-widest hover:gap-4 transition-all"
+              >     
                 Ver Repositorio <div className="h-px w-8 bg-blue-500" />
               </Link>
             </div>
@@ -259,7 +279,12 @@ export default function Home() {
                   <span key={tag} className="text-[10px] font-bold text-gray-500 border border-white/10 px-2 py-1 rounded">#{tag}</span>
                 ))}
               </div>
-              <Link href="https://github.com/merloyflores/clinica-podologia" className="inline-flex items-center gap-2 text-blue-500 font-black text-xs uppercase tracking-widest hover:gap-4 transition-all">
+              <Link 
+                href="https://github.com/merloyflores/clinica-podologia" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-blue-500 font-black text-xs uppercase tracking-widest hover:gap-4 transition-all"
+              >
                 Ver Repositorio <div className="h-px w-8 bg-blue-500" />
               </Link>
             </div>
