@@ -284,7 +284,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-blue-500 font-black text-xs uppercase tracking-widest hover:gap-4 transition-all"
-              >
+                >
                 Ver Repositorio <div className="h-px w-8 bg-blue-500" />
               </Link>
             </div>
