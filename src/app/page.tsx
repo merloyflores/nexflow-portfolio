@@ -104,8 +104,6 @@ export default function Home() {
               <Link 
                 href="#servicios" 
                 className="px-8 py-4 rounded-xl font-bold text-white border border-white/10 hover:bg-white/5 text-center transition-all"
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 Soluciones
               </Link>
