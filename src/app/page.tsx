@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { LayoutDashboard, BarChart3, Bot, Zap, Target, Users, Mail, Phone } from 'lucide-react';
 
-const personalPhoto = '/FotoPerfil.jfif'; // Asegúrate de que este archivo esté en la carpeta /public
+const personalPhoto = '/FotoPerfil.png'; // Asegúrate de que este archivo esté en la carpeta /public
 
 const services = [
   {
