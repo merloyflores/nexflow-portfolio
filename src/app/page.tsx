@@ -1,7 +1,8 @@
 // app/page.tsx
 import Image from 'next/image';
 import Link from 'next/link';
-import { LayoutDashboard, BarChart3, Bot, Zap, Target, Users, Mail, Phone } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
+import { ExternalLink, LayoutDashboard, BarChart3, Bot, Zap, Target, Users, Mail, Phone } from 'lucide-react';
 
 const personalPhoto = '/FotoPerfil.png'; // Asegúrate de que este archivo esté en la carpeta /public
 
@@ -208,104 +209,241 @@ export default function Home() {
       </section>
 
       {/* Section: Proyectos Destacados */}
-      <section id="proyectos" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-white/5">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter italic">
-              Portfolio_<span className="text-blue-500 bg-clip-text bg-linear-to-r from-blue-500 to-cyan-400">Archive</span>
-            </h2>
-            <p className="text-gray-500 font-mono text-xs mt-2">{">"} Cargando repositorios de alto rendimiento...</p>
-          </div>
-          <Link 
-            href="https://github.com/merloyflores" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 font-bold text-xs hover:underline tracking-widest uppercase"
-          >
-            Ver todo en GitHub _
-          </Link>
-        </div>
+      <section id="proyectos" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-20 gap-12 border-b border-white/10 pb-12">
+                  {/* Columna de Texto Explicativo (Venta Inteligente) */}
+                  <div className="max-w-3xl">
+                    <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-6">
+                      Impacto Real, <br className="hidden md:block" />
+                      <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-cyan-400">
+                        RESULTADOS MEDIBLES.
+                      </span>
+                    </h2>
+                    <div className="space-y-4 text-gray-400 text-base md:text-lg leading-relaxed">
+                      <p>
+                        En Nexflow Digital no creamos simples páginas web; desarrollamos <strong>ecosistemas digitales estratégicos</strong>. Entendemos que cada empresa tiene desafíos únicos, por lo que nuestro enfoque es 100% consultivo y a la medida.
+                      </p>
+                      <p>
+                        Analizamos tus cuellos de botella operativos y construimos herramientas (desde plataformas web de alta conversión hasta automatizaciones) diseñadas para <strong>escalar tus ventas, optimizar tu tiempo y elevar tu marca.</strong> Explora nuestros casos de éxito a continuación y descubre cómo transformamos ideas complejas en soluciones digitales de alto rendimiento.
+                      </p>
+                    </div>
+                  </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+                  {/* Columna de Llamado a la Acción y GitHub */}
+                  <div className="relative group p-px rounded-3xl overflow-hidden bg-linear-to-br from-blue-500/20 via-transparent to-cyan-400/20">
+                    {/* Fondo con Blur sutil */}
+                    <div className="flex flex-col items-center lg:items-start gap-6 shrink-0 bg-slate-900/80 backdrop-blur-xl p-8 rounded-[23px] border border-white/10 shadow-2xl">
+                      
+                      <div className="space-y-1 text-left lg:text-left">
+                        <p className="text-[10px] font-black tracking-[0.3em] text-blue-500 uppercase">
+                          Consultoría Disponible
+                        </p>
+                        <h3 className="text-xl font-bold text-white tracking-tight">
+                          ¿Listo para arquitectar <br className="hidden lg:block" /> tu próxima solución?
+                        </h3>
+                      </div>
+
+                      {/* Botón Principal Estilizado */}
+                      <Link 
+                        href="https://wa.me/50670767769"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/btn relative w-full lg:w-auto inline-flex items-center justify-center gap-3 bg-white text-slate-950 font-black py-4 px-10 rounded-2xl transition-all duration-300 hover:bg-blue-600 hover:text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transform hover:-translate-y-1"
+                      >
+                        <span>Agendar Sesión Inicial</span>
+                        <div className="w-2 h-2 bg-blue-600 rounded-full group-hover/btn:bg-white animate-pulse"></div>
+                      </Link>
+
+                      {/* Separador con texto */}
+                      <div className="flex items-center gap-4 w-full">
+                        <div className="h-1px grow bg-white/80"></div>
+                        <span className="text-[10px] font-mono text-white/20 uppercase tracking-widest">o bien</span>
+                        <div className="h-1px grow bg-white/80"></div>
+                      </div>
+
+                      {/* GitHub con estilo minimalista */}
+                      <Link 
+                        href="https://github.com/merloyflores" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center lg:justify-end gap-3 text-white/20 hover:text-blue-400 transition-all text-xs font-bold w-full group/github"
+                      >
+                        <span className="group-hover/github:opacity-100 transition-opacity duration-300">Explorar Código Fuente</span>
+                        <FaGithub size={20} className="group-hover/github:scale-110 transition-transform" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+        {/* GRID DE PROYECTOS */}
+        <div className="grid md:grid-cols-2 gap-8">
           
-          {/* Proyecto 1: Cirelia Store */}
-          <div className="group relative bg-slate-900 border border-white/5 rounded-2xl overflow-hidden hover:border-blue-600/50 transition-all duration-500">
-            <div className="aspect-video bg-slate-800 relative overflow-hidden">
-              <div className="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition-colors z-10" />
-              <div className="flex items-center justify-center h-full text-white/10 font-black text-4xl group-hover:scale-110 transition-transform">E-COMMERCE</div>
+          {/* Proyecto 1: BUKUË */}
+          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-500 shadow-2xl shadow-black/50 hover:-translate-y-1">
+            {/* Venta de Navegador (Preview) */}
+            <div className="aspect-video bg-slate-800 relative overflow-hidden border-b border-white/10">
+              {/* Header Mac */}
+              <div className="absolute top-0 w-full h-6 bg-slate-950 flex items-center px-3 gap-1.5 z-20">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                <div className="ml-2 text-[10px] font-mono text-gray-500 tracking-tighter">bukuecr.com</div>
+              </div>
+              {/* Overlay Azul Hover */}
+              <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
+              {/* Iframe */}
+              <div className="absolute top-6 bottom-0 w-full bg-white">
+                <iframe src="https://www.bukuecr.com/" className="w-full h-full border-none pointer-events-none" title="Bukue Preview" tabIndex={-1} />
+              </div>
             </div>
+            
             <div className="p-8">
               <div className="flex justify-between items-start mb-4">
-                <h3 className="text-2xl font-black text-white uppercase tracking-tighter">Cirelia Store</h3>
-                <span className="text-[10px] font-mono text-green-500 bg-green-500/10 px-2 py-1 rounded border border-green-500/20">LIVE_PROJECT</span>
+                <h3 className="text-2xl font-black text-white uppercase tracking-tighter">BUKUË Costa Rica</h3>
+                <span className="text-[10px] font-mono text-green-400 bg-green-400/10 px-2 py-1 rounded border border-green-500/20 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span> LIVE
+                </span>
               </div>
               <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                Tienda digital completa con pasarela de pagos, gestión de inventario y panel de administración. Optimizado para conversión.
+                Plataforma corporativa que facilita el equilibrio entre la responsabilidad ecológica y los objetivos económicos. Desarrollamos soluciones digitales personalizadas que minimizan el impacto ambiental y maximizan la rentabilidad empresarial.
               </p>
               <div className="flex flex-wrap gap-2 mb-8">
-                {['Next.js', 'Tailwind', 'Stripe', 'Supabase'].map(tag => (
-                  <span key={tag} className="text-[10px] font-bold text-gray-500 border border-white/10 px-2 py-1 rounded">#{tag}</span>
+                {['Next.js', 'Tailwind', 'Corporate UI', 'SEO'].map(tag => (
+                  <span key={tag} className="text-[10px] font-bold text-gray-400 border border-white/10 px-2 py-1 rounded bg-white/5">#{tag}</span>
                 ))}
               </div>
-              <Link 
-                href="https://github.com/merloyflores/CireliaStore" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-blue-500 font-black text-xs uppercase tracking-widest hover:gap-4 transition-all"
-              >     
-                Ver Repositorio <div className="h-px w-8 bg-blue-500" />
-              </Link>
+              <div className="flex items-center gap-6">
+                <Link href="https://www.bukuecr.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white font-black text-xs uppercase tracking-widest hover:text-blue-400 transition-colors">
+                  <ExternalLink size={16} /> Ver Sitio
+                </Link>
+                <Link href="https://github.com/merloyflores/bukue-repo-falso" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 font-bold text-xs uppercase tracking-widest hover:text-white transition-colors">
+                  <FaGithub size={16} /> Repo
+                </Link>
+              </div>
             </div>
           </div>
 
-          {/* Proyecto 2: Clínica Podología */}
-          <div className="group relative bg-slate-900 border border-white/5 rounded-2xl overflow-hidden hover:border-blue-600/50 transition-all duration-500">
-            <div className="aspect-video bg-slate-800 relative overflow-hidden">
-              <div className="absolute inset-0 bg-cyan-600/20 group-hover:bg-transparent transition-colors z-10" />
-              <div className="flex items-center justify-center h-full text-white/10 font-black text-4xl group-hover:scale-110 transition-transform">MEDICAL_SYS</div>
+          {/* Proyecto 2: Lorena de la Garza */}
+          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-500 shadow-2xl shadow-black/50 hover:-translate-y-1">
+            <div className="aspect-video bg-slate-800 relative overflow-hidden border-b border-white/10">
+              <div className="absolute top-0 w-full h-6 bg-slate-950 flex items-center px-3 gap-1.5 z-20">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                <div className="ml-2 text-[10px] font-mono text-gray-500 tracking-tighter truncate">violencia-obstetrica.vercel.app</div>
+              </div>
+              <div className="absolute inset-0 bg-purple-900/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
+              <div className="absolute top-6 bottom-0 w-full bg-white">
+                <iframe src="https://violencia-obstetrica-landing.vercel.app/" className="w-full h-full border-none pointer-events-none" title="Lorena Preview" tabIndex={-1} />
+              </div>
             </div>
+            
             <div className="p-8">
               <div className="flex justify-between items-start mb-4">
-                <h3 className="text-2xl font-black text-white uppercase tracking-tighter">Clínica Podología</h3>
-                <span className="text-[10px] font-mono text-blue-500 bg-blue-500/10 px-2 py-1 rounded border border-blue-500/20">CASE_STUDY</span>
+                <h3 className="text-2xl font-black text-white uppercase tracking-tighter">Lorena de la Garza</h3>
+                <span className="text-[10px] font-mono text-green-400 bg-green-400/10 px-2 py-1 rounded border border-green-500/20 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span> LIVE
+                </span>
               </div>
               <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                Sistema de gestión de citas y expedientes médicos. Enfoque en UX para personal de salud y seguridad de datos.
+                Espacio digital de concientización y apoyo. Integra un diseño empático y accesible con un gestor de contenido dinámico (Blog) para difundir información vital y recursos sobre la violencia obstétrica.
               </p>
               <div className="flex flex-wrap gap-2 mb-8">
-                {['React', 'Firebase', 'Node.js', 'ShadcnUI'].map(tag => (
-                  <span key={tag} className="text-[10px] font-bold text-gray-500 border border-white/10 px-2 py-1 rounded">#{tag}</span>
+                {['Next.js', 'Blog System', 'Tailwind', 'UX Writing'].map(tag => (
+                  <span key={tag} className="text-[10px] font-bold text-gray-400 border border-white/10 px-2 py-1 rounded bg-white/5">#{tag}</span>
                 ))}
               </div>
-              <Link 
-                href="https://github.com/merloyflores/clinica-podologia" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-blue-500 font-black text-xs uppercase tracking-widest hover:gap-4 transition-all"
-                >
-                Ver Repositorio <div className="h-px w-8 bg-blue-500" />
-              </Link>
+              <div className="flex items-center gap-6">
+                <Link href="https://violencia-obstetrica-landing.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white font-black text-xs uppercase tracking-widest hover:text-purple-400 transition-colors">
+                  <ExternalLink size={16} /> Ver Sitio
+                </Link>
+                <Link href="https://github.com/merloyflores/lorena-repo-falso" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 font-bold text-xs uppercase tracking-widest hover:text-white transition-colors">
+                  <FaGithub size={16} /> Repo
+                </Link>
+              </div>
             </div>
           </div>
 
-          {/* Proyecto 3: Muestra de BI (PROXIMAMENTE) */}
-          <div className="group relative bg-slate-900/50 border border-dashed border-white/10 rounded-2xl p-8 flex flex-col justify-center items-center text-center opacity-70 hover:opacity-100 transition-opacity">
-            <div className="w-16 h-16 bg-blue-600/10 rounded-full flex items-center justify-center mb-4">
-              <LayoutDashboard className="text-blue-500 animate-pulse" />
+          {/* Proyecto 3: Clínica Podológica */}
+          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition-all duration-500 shadow-2xl shadow-black/50 hover:-translate-y-1">
+            <div className="aspect-video bg-slate-800 relative overflow-hidden border-b border-white/10">
+              <div className="absolute top-0 w-full h-6 bg-slate-950 flex items-center px-3 gap-1.5 z-20">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                <div className="ml-2 text-[10px] font-mono text-gray-500 tracking-tighter truncate">clinica-podologica.vercel.app</div>
+              </div>
+              <div className="absolute inset-0 bg-cyan-900/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
+              <div className="absolute top-6 bottom-0 w-full bg-white">
+                <iframe src="https://clinica-podologica.vercel.app/" className="w-full h-full border-none pointer-events-none" title="Clinica Preview" tabIndex={-1} />
+              </div>
             </div>
-            <h3 className="text-xl font-bold text-white uppercase tracking-tighter">Business Intelligence Dashboard</h3>
-            <p className="text-gray-500 text-xs mt-2 mb-4">Sincronizando datos de Power BI y SQL Server...</p>
-            <span className="text-[10px] font-mono text-blue-400 border border-blue-500/30 px-3 py-1 rounded-full uppercase tracking-tighter">Building_Muestra_Ganas</span>
+            
+            <div className="p-8">
+              <div className="flex justify-between items-start mb-4">
+                <h3 className="text-2xl font-black text-white uppercase tracking-tighter">Clínica Alvarado</h3>
+                <span className="text-[10px] font-mono text-green-400 bg-green-400/10 px-2 py-1 rounded border border-green-500/20 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span> LIVE
+                </span>
+              </div>
+              <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+                Presencia médica de alta conversión. Destaca por su sistema interactivo de agendamiento de citas integrado en un modal inmersivo, optimizando la captación de pacientes y la experiencia del usuario.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {['React', 'Booking System', 'Modal UI', 'Tailwind'].map(tag => (
+                  <span key={tag} className="text-[10px] font-bold text-gray-400 border border-white/10 px-2 py-1 rounded bg-white/5">#{tag}</span>
+                ))}
+              </div>
+              <div className="flex items-center gap-6">
+                <Link href="https://clinica-podologica.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white font-black text-xs uppercase tracking-widest hover:text-cyan-400 transition-colors">
+                  <ExternalLink size={16} /> Ver Sitio
+                </Link>
+                <Link href="https://github.com/merloyflores/clinica-repo-falso" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 font-bold text-xs uppercase tracking-widest hover:text-white transition-colors">
+                  <FaGithub size={16} /> Repo
+                </Link>
+              </div>
+            </div>
           </div>
 
-          {/* Proyecto 4: Muestra de Automate (PROXIMAMENTE) */}
-          <div className="group relative bg-slate-900/50 border border-dashed border-white/10 rounded-2xl p-8 flex flex-col justify-center items-center text-center opacity-70 hover:opacity-100 transition-opacity">
-            <div className="w-16 h-16 bg-cyan-600/10 rounded-full flex items-center justify-center mb-4">
-              <Zap className="text-cyan-500 animate-pulse" />
+          {/* Proyecto 4: PrimeStay Rentals */}
+          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-500 shadow-2xl shadow-black/50 hover:-translate-y-1">
+            <div className="aspect-video bg-slate-800 relative overflow-hidden border-b border-white/10">
+              <div className="absolute top-0 w-full h-6 bg-slate-950 flex items-center px-3 gap-1.5 z-20">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                <div className="ml-2 text-[10px] font-mono text-gray-500 tracking-tighter truncate">primestay-rentals.vercel.app</div>
+              </div>
+              <div className="absolute inset-0 bg-emerald-900/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
+              <div className="absolute top-6 bottom-0 w-full bg-white">
+                <iframe src="https://primestay-rentals.vercel.app/" className="w-full h-full border-none pointer-events-none" title="PrimeStay Preview" tabIndex={-1} />
+              </div>
             </div>
-            <h3 className="text-xl font-bold text-white uppercase tracking-tighter">Enterprise Automation Flow</h3>
-            <p className="text-gray-500 text-xs mt-2 mb-4">Optimizando flujos operativos con Power Automate...</p>
-            <span className="text-[10px] font-mono text-cyan-400 border border-cyan-500/30 px-3 py-1 rounded-full uppercase tracking-tighter">Deploy_Scheduled</span>
+            
+            <div className="p-8">
+              <div className="flex justify-between items-start mb-4">
+                <h3 className="text-2xl font-black text-white uppercase tracking-tighter">PrimeStay Rentals</h3>
+                <span className="text-[10px] font-mono text-green-400 bg-green-400/10 px-2 py-1 rounded border border-green-500/20 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span> LIVE
+                </span>
+              </div>
+              <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+                Plataforma integral para la gestión y cuidado de propiedades Airbnb. Digitaliza todo el servicio de renta, centralizando el mantenimiento y elevando la presentación digital del apartamento hacia los huéspedes.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {['Next.js', 'Property Management', 'UI/UX', 'Vercel'].map(tag => (
+                  <span key={tag} className="text-[10px] font-bold text-gray-400 border border-white/10 px-2 py-1 rounded bg-white/5">#{tag}</span>
+                ))}
+              </div>
+              <div className="flex items-center gap-6">
+                <Link href="https://primestay-rentals.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white font-black text-xs uppercase tracking-widest hover:text-emerald-400 transition-colors">
+                  <ExternalLink size={16} /> Ver Sitio
+                </Link>
+                <Link href="https://github.com/merloyflores/primestay-repo-falso" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 font-bold text-xs uppercase tracking-widest hover:text-white transition-colors">
+                  <FaGithub size={16} /> Repo
+                </Link>
+              </div>
+            </div>
           </div>
 
         </div>
