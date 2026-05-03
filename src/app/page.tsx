@@ -1,10 +1,10 @@
 // app/page.tsx
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaGithub } from 'react-icons/fa';
-import { ExternalLink, LayoutDashboard, BarChart3, Bot, Zap, Target, Users, Mail, Phone } from 'lucide-react';
+import { FaClipboardList, FaGithub, FaWhatsapp } from 'react-icons/fa';
+import { ExternalLink, LayoutDashboard, BarChart3, Bot, Zap, Target, Users, Mail, Phone, Layers, Rocket, Wallet, ArrowRight, Terminal } from 'lucide-react';
 
-const personalPhoto = '/FotoPerfil.png'; // Asegúrate de que este archivo esté en la carpeta /public
+const personalPhoto = '/FotoPerfil.png';
 
 const services = [
   {
@@ -29,137 +29,138 @@ const services = [
   },
 ];
 
-const stats = [
-  { label: 'Proyectos Entregados', value: '+50' },
-  { label: 'Clientes Satisfechos', value: '+30' },
-  { label: 'Países Impactados', value: '3' },
-    { label: 'Años de Experiencia', value: '+5' },
-];
-
 export default function Home() {
   return (
-    <div className="flex flex-col gap-24 md:gap-32 lg:gap-10">
-{/* Hero Section */}
+    <div className="flex flex-col gap-4 md:gap-32 lg:gap-10">
+      {/* SECCIÓN: HERO */}
       <section className="relative bg-slate-950 pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden border-b border-white/5">
-      {/* Fondo con radial gradient optimizado */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent z-0" />
+        {/* Fondo con radial gradient optimizado */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent z-0" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-          
-          {/* Columna de Texto */}
-          <div className="flex flex-col items-start order-2 md:order-1">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-medium text-xs md:text-sm mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-              </span>
-              Sistemas activos para nuevos proyectos
-            </div>
-
-            {/* Título responsivo: texto más pequeño en móvil (text-5xl) y gigante en desktop (lg:text-8xl) */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-[0.9] tracking-tighter mb-8">
-              DIGITAL <br />
-              <span className="bg-clip-text text-transparent bg-linear-to-r from-blue-500 via-cyan-400 to-indigo-500">
-                EVOLUTION
-              </span>
-            </h1>
-
-            <p className="text-lg md:text-xl lg:text-2xl text-gray-400 font-light max-w-xl mb-10 leading-relaxed">
-              En <span className="text-white font-semibold">Nexflow Digital</span>, diseñamos <strong>sistemas de alto rendimiento</strong> que fusionan <span className="text-blue-400">Next.js</span> con la automatización de <span className="text-blue-400">Power Platform</span>.
-            </p>
-
-            {/* Puntos de valor responsivos */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 w-full">
-              <div className="flex items-start gap-3 group">
-                <div className="p-2 bg-blue-600/10 border border-blue-500/20 rounded-lg text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                  <Target size={20} />
-                </div>
-                <div>
-                  <p className="text-white font-bold text-sm uppercase tracking-wider">Escalabilidad</p>
-                  <p className="text-gray-500 text-xs mt-1">Arquitecturas preparadas para el futuro.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 group">
-                <div className="p-2 bg-cyan-600/10 border border-cyan-500/20 rounded-lg text-cyan-500 group-hover:bg-cyan-600 group-hover:text-white transition-colors">
-                  <Zap size={20} />
-                </div>
-                <div>
-                  <p className="text-white font-bold text-sm uppercase tracking-wider">Automatización</p>
-                  <p className="text-gray-500 text-xs mt-1">Eficiencia operativa garantizada.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Botones responsivos (full width en móvil) */}
-            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <Link 
-                href="#contacto" 
-                className="group bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold text-center transition-all shadow-lg flex items-center justify-center gap-3"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Auditoría Gratis
-                <Target className="group-hover:scale-110 transition-transform" size={20} />
-              </Link>
-              <Link 
-                href="#servicios" 
-                className="px-8 py-4 rounded-xl font-bold text-white border border-white/10 hover:bg-white/5 text-center transition-all"
-              >
-                Soluciones
-              </Link>
-            </div>
-          </div>
-
-          {/* Columna de Imagen */}
-          <div className="relative flex justify-center md:justify-end order-1 md:order-2 mb-12 md:mb-0">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-blue-600/10 rounded-full blur-[80px] -z-10" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
             
-            <div className="relative group">
-              {/* Badge responsivo */}
-              <div className="absolute -top-4 -left-4 md:-top-6 md:-left-6 bg-slate-900/90 backdrop-blur-md border border-white/20 p-3 md:p-4 rounded-2xl z-20 shadow-2xl">
-                <p className="text-blue-500 font-black text-2xl md:text-3xl leading-none">100%</p>
-                <p className="text-gray-400 text-[8px] md:text-[10px] uppercase tracking-widest font-bold">Personalizado</p>
+            {/* Columna de Texto - Nexflow Digital */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left order-2 md:order-1">
+              
+              {/* Insignia Centrada en Móvil */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-medium text-xs md:text-sm mb-6">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                Sistemas activos para nuevos proyectos
               </div>
 
-              {/* Foto Principal */}
-              <div className="relative z-10 w-64 h-64 sm:w-80 sm:h-80 lg:w-100 lg:h-100 rounded-4xl md:rounded-[2.5rem] overflow-hidden border-4 border-white/10 shadow-2xl transition-all duration-700 group-hover:rotate-0 rotate-2">
-                <Image
-                  src={personalPhoto}
-                  alt="Merloy Flores"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-              
-              {/* ELEMENTO NUEVO INTERACTIVO: Terminal de Status */}
-              <div className="absolute -bottom-6 -right-4 md:-bottom-10 md:-right-10 bg-slate-950 border border-blue-500/30 p-4 rounded-xl shadow-2xl z-20 w-48 md:w-64 transform group-hover:-translate-y-2 transition-transform duration-500">
-                <div className="flex gap-1.5 mb-2">
-                  <div className="w-2 h-2 rounded-full bg-red-500/50" />
-                  <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
-                  <div className="w-2 h-2 rounded-full bg-green-500/50" />
+              {/* Título Responsivo y Centrado */}
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-[0.9] tracking-tighter mb-8">
+                DIGITAL <br />
+                <span className="bg-clip-text text-transparent bg-linear-to-r from-blue-500 via-cyan-400 to-indigo-500">
+                  EVOLUTION
+                </span>
+              </h1>
+
+              {/* Párrafo con max-w centrado */}
+              <p className="text-lg md:text-xl lg:text-2xl text-gray-400 font-light max-w-xl mb-10 leading-relaxed mx-auto md:mx-0">
+                En <span className="text-white font-semibold">Nexflow Digital</span>, diseñamos <strong>sistemas de alto rendimiento</strong> que fusionan <span className="text-blue-400">Next.js</span> con la automatización de <span className="text-blue-400">Power Platform</span>.
+              </p>
+
+              {/* Puntos de valor: Centrados en móvil y alineados en escritorio */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 w-full max-w-lg md:max-w-none">
+                <div className="flex flex-col sm:flex-row items-center md:items-start gap-3 group text-center md:text-left">
+                  <div className="p-2 bg-blue-600/10 border border-blue-500/20 rounded-lg text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <Target size={20} />
+                  </div>
+                  <div>
+                    <p className="text-white font-bold text-sm uppercase tracking-wider">Escalabilidad</p>
+                    <p className="text-gray-500 text-xs mt-1">Arquitecturas preparadas para el futuro.</p>
+                  </div>
                 </div>
-                <div className="font-mono text-[10px] md:text-xs text-blue-400 space-y-1">
-                  <p className="text-gray-500">{'>'} nexflow --status</p>
-                  <p className="text-green-400 font-bold">● SYSTEM_READY</p>
-                  <p className="text-cyan-400 animate-pulse">_fetching_data...</p>
+                <div className="flex flex-col sm:flex-row items-center md:items-start gap-3 group text-center md:text-left">
+                  <div className="p-2 bg-cyan-600/10 border border-cyan-500/20 rounded-lg text-cyan-500 group-hover:bg-cyan-600 group-hover:text-white transition-colors">
+                    <Zap size={20} />
+                  </div>
+                  <div>
+                    <p className="text-white font-bold text-sm uppercase tracking-wider">Automatización</p>
+                    <p className="text-gray-500 text-xs mt-1">Eficiencia operativa garantizada.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Botones simétricos (Ya con mx-auto en el contenedor para centrar) */}
+              <div className="flex flex-col sm:flex-row gap-4 w-full max-w-lg mx-auto md:mx-0">
+                <Link 
+                  href="#contacto" 
+                  className="flex-1 group bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold text-center transition-all shadow-lg flex items-center justify-center gap-3 active:scale-95"
+                >
+                  Auditoría Gratis
+                  <Target className="group-hover:scale-110 transition-transform" size={20} />
+                </Link>
+
+                <Link 
+                  href="#servicios" 
+                  className="flex-1 group bg-slate-700 hover:bg-slate-600 text-white px-8 py-4 rounded-xl font-bold text-center transition-all shadow-lg flex items-center justify-center gap-3 active:scale-95 border border-white/10"
+                >
+                  Ver Soluciones
+                  <Layers className="group-hover:scale-110 transition-transform" size={20} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Columna de Imagen */}
+            <div className="relative flex justify-center md:justify-end order-1 md:order-2 mb-12 md:mb-0">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-blue-600/10 rounded-full blur-[80px] -z-10" />
+              
+              <div className="relative group">
+                {/* Badge responsivo */}
+                <div className="absolute -top-4 -left-4 md:-top-6 md:-left-6 bg-slate-900/90 backdrop-blur-md border border-white/20 p-3 md:p-4 rounded-2xl z-20 shadow-2xl">
+                  <p className="text-blue-500 font-black text-2xl md:text-3xl leading-none">100%</p>
+                  <p className="text-gray-400 text-[8px] md:text-[10px] uppercase tracking-widest font-bold">Personalizado</p>
+                </div>
+
+                {/* Foto Principal */}
+                <div className="relative z-10 w-64 h-64 sm:w-80 sm:h-80 lg:w-100 lg:h-100 rounded-4xl md:rounded-[2.5rem] overflow-hidden border-4 border-white/10 shadow-2xl transition-all duration-700 group-hover:rotate-0 lg:rotate-2">
+                  <Image
+                    src={personalPhoto}
+                    alt="Merloy Flores"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+                
+                {/* ELEMENTO NUEVO INTERACTIVO: Terminal de Status */}
+                <div className="absolute -bottom-6 -right-4 md:-bottom-10 md:-right-10 bg-slate-950 border border-blue-500/30 p-4 rounded-xl shadow-2xl z-20 w-48 md:w-64 transform group-hover:-translate-y-2 transition-transform duration-500">
+                  <div className="flex gap-1.5 mb-2">
+                    <div className="w-2 h-2 rounded-full bg-red-500/50" />
+                    <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
+                    <div className="w-2 h-2 rounded-full bg-green-500/50" />
+                  </div>
+                  <div className="font-mono text-[10px] md:text-xs text-blue-400 space-y-1">
+                    {/* El comando ahora sugiere una auditoría o análisis de negocio */}
+                    <p className="text-gray-500">{'>'} nexflow --analizar_negocio</p>
+                    
+                    {/* El estado indica que todo está bajo control y funcionando */}
+                    <p className="text-green-400 font-bold">● SYSTEM_READY</p>
+                    
+                    {/* La animación sugiere que el sistema está buscando mejoras constantemente */}
+                    <p className="text-cyan-400 animate-pulse">_optimizando_procesos...</p>
+                  </div>
                 </div>
               </div>
             </div>
+
           </div>
-
         </div>
-      </div>
-    </section>
+      </section>
 
-      {/* Services Section */}
-      <section id="servicios" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
+      {/* SECCIÓN: SOLUCIONES INTEGRALES */}
+      <section id="servicios" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 ">
+        <div className="flex flex-col md:flex-row items-star justify-between mb-12 gap-6">
           <div className="max-w-2xl">
             <div className="flex items-center gap-2 text-blue-500 mb-4">
               <div className="h-px w-12 bg-blue-500"></div>
-              <span className="text-xs font-black uppercase tracking-[0.3em]">Capabilities</span>
+              <span className="text-xs font-black uppercase tracking-[0.3em]">Nosotros Lo hacemos</span>
             </div>
             <h2 className="text-5xl md:text-7xl font-black text-gray-400 leading-none">
               SOLUCIONES <br />
@@ -208,72 +209,166 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section: Proyectos Destacados */}
-      <section id="proyectos" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-20 gap-12 border-b border-white/10 pb-12">
-                  {/* Columna de Texto Explicativo (Venta Inteligente) */}
-                  <div className="max-w-3xl">
-                    <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-6">
-                      Impacto Real, <br className="hidden md:block" />
-                      <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-cyan-400">
-                        RESULTADOS MEDIBLES.
-                      </span>
-                    </h2>
-                    <div className="space-y-4 text-gray-400 text-base md:text-lg leading-relaxed">
-                      <p>
-                        En Nexflow Digital no creamos simples páginas web; desarrollamos <strong>ecosistemas digitales estratégicos</strong>. Entendemos que cada empresa tiene desafíos únicos, por lo que nuestro enfoque es 100% consultivo y a la medida.
-                      </p>
-                      <p>
-                        Analizamos tus cuellos de botella operativos y construimos herramientas (desde plataformas web de alta conversión hasta automatizaciones) diseñadas para <strong>escalar tus ventas, optimizar tu tiempo y elevar tu marca.</strong> Explora nuestros casos de éxito a continuación y descubre cómo transformamos ideas complejas en soluciones digitales de alto rendimiento.
-                      </p>
+      {/* SECCIÓN: Menos Operación Manual. Más Inteligencia de Negocio. */}
+      <div className="bg-slate-950 py-20"> {/* Contenedor de fondo negro total */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative">
+          {/* Efecto de luz de fondo para dar profundidad */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-blue-900/20 blur-[120px] rounded-full pointer-events-none z-0" />
+
+          <div className="relative z-10 p-px rounded-4xl bg-linear-to-br from-blue-500/30 via-white/5 to-cyan-400/20 shadow-2xl shadow-black/50 overflow-hidden">
+            {/* Contenedor principal con efecto Glassmorphism */}
+            <div className="bg-slate-900/90 backdrop-blur-2xl rounded-[calc(2rem-1px)] p-8 md:p-16">
+              
+              <div className="grid lg:grid-cols-5 gap-12 items-center">
+                
+                {/* Columna Izquierda: Copy de Valor (Ocupa 3 columnas) */}
+                <div className="lg:col-span-3">
+                  
+                  <h2 className="flex flex-col gap-2 mb-6">
+                    {/* Texto superior: Más pequeño, sutil y espaciado */}
+                    <span className="text-sm md:text-base font-mono font-bold text-white tracking-[0.2em] uppercase opacity-90">
+                      Menos Operación Manual y
+                    </span>
+                    
+                    {/* Texto principal: Grande, potente y con el degradado de Nexflow */}
+                    <span className="text-4xl md:text-6xl font-black tracking-tight leading-1px text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-300">
+                      MÁS INTELIGENCIA DE NEGOCIO.
+                    </span>
+                  </h2>
+                  
+                  <p className="text-gray-400 text-lg mb-10 leading-relaxed max-w-2xl">
+                    No nos limitamos a crear presencia en línea. Desarrollamos <strong>ecosistemas digitales completos</strong>: desde herramientas internas para optimizar la operación de tu empresa, hasta aplicaciones a la medida para escalar emprendimientos con <strong>planes flexibles que se ajustan a la visión y presupuesto de cada proyecto.</strong>
+                  </p>
+
+                  {/* Grid de Capacidades */}
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    <div className="flex gap-4">
+                      <div className="shrink-0 mt-1 bg-slate-800 p-2.5 rounded-xl border border-white/5">
+                        <Layers size={20} className="text-blue-400" />
+                      </div>
+                      <div>
+                        <h4 className="text-white font-bold text-sm mb-1">Apps Corporativas</h4>
+                        <p className="text-gray-500 text-xs leading-relaxed">Portales de gestión, dashboards y automatización de procesos internos.</p>
+                      </div>
                     </div>
-                  </div>
-
-                  {/* Columna de Llamado a la Acción y GitHub */}
-                  <div className="relative group p-px rounded-3xl overflow-hidden bg-linear-to-br from-blue-500/20 via-transparent to-cyan-400/20">
-                    {/* Fondo con Blur sutil */}
-                    <div className="flex flex-col items-center lg:items-start gap-6 shrink-0 bg-slate-900/80 backdrop-blur-xl p-8 rounded-[23px] border border-white/10 shadow-2xl">
-                      
-                      <div className="space-y-1 text-left lg:text-left">
-                        <p className="text-[10px] font-black tracking-[0.3em] text-blue-500 uppercase">
-                          Consultoría Disponible
-                        </p>
-                        <h3 className="text-xl font-bold text-white tracking-tight">
-                          ¿Listo para arquitectar <br className="hidden lg:block" /> tu próxima solución?
-                        </h3>
+                    
+                    <div className="flex gap-4">
+                      <div className="shrink-0 mt-1 bg-slate-800 p-2.5 rounded-xl border border-white/5">
+                        <Wallet size={20} className="text-cyan-400" />
                       </div>
-
-                      {/* Botón Principal Estilizado */}
-                      <Link 
-                        href="https://wa.me/50670767769"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group/btn relative w-full lg:w-auto inline-flex items-center justify-center gap-3 bg-white text-slate-950 font-black py-4 px-10 rounded-2xl transition-all duration-300 hover:bg-blue-600 hover:text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transform hover:-translate-y-1"
-                      >
-                        <span>Agendar Sesión Inicial</span>
-                        <div className="w-2 h-2 bg-blue-600 rounded-full group-hover/btn:bg-white animate-pulse"></div>
-                      </Link>
-
-                      {/* Separador con texto */}
-                      <div className="flex items-center gap-4 w-full">
-                        <div className="h-1px grow bg-white/80"></div>
-                        <span className="text-[10px] font-mono text-white/20 uppercase tracking-widest">o bien</span>
-                        <div className="h-1px grow bg-white/80"></div>
+                      <div>
+                        <h4 className="text-white font-bold text-sm mb-1">Planes a la Medida</h4>
+                        <p className="text-gray-500 text-xs leading-relaxed">Arquitectura escalable. Invertimos los recursos donde generan mayor impacto.</p>
                       </div>
-
-                      {/* GitHub con estilo minimalista */}
-                      <Link 
-                        href="https://github.com/merloyflores" 
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center lg:justify-end gap-3 text-white/20 hover:text-blue-400 transition-all text-xs font-bold w-full group/github"
-                      >
-                        <span className="group-hover/github:opacity-100 transition-opacity duration-300">Explorar Código Fuente</span>
-                        <FaGithub size={20} className="group-hover/github:scale-110 transition-transform" />
-                      </Link>
                     </div>
                   </div>
                 </div>
+
+                {/* Columna Derecha: Panel Interactivo (Ocupa 2 columnas) */}
+                <div className="lg:col-span-2 relative group">
+                  {/* Borde animado sutil en hover */}
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-blue-600 to-cyan-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                  
+                  <div className="relative bg-slate-950 p-8 md:p-10 rounded-2xl border border-white/10 h-full flex flex-col justify-center items-center text-center">
+                    
+                    <div className="w-20 h-20 bg-blue-500/10 rounded-full flex items-center justify-center mb-6 border border-blue-500/20 relative">
+                      <div className="absolute inset-0 rounded-full border-t border-blue-400 animate-spin opacity-50" style={{ animationDuration: '3s' }}></div>
+                      <Rocket className="text-blue-400" size={32} />
+                    </div>
+                    
+                    <h3 className="text-2xl font-black text-white mb-3">¿Qué tienes en mente?</h3>
+                    <p className="text-sm text-gray-400 mb-8 px-4">
+                      Cuéntanos los detalles de tu requerimiento. Evaluaremos la viabilidad técnica y diseñaremos la hoja de ruta ideal para ti.
+                    </p>
+
+                    {/* El enlace apunta a "/contacto" o la ruta que vayas a usar luego */}
+                    <Link 
+                      href="/contacto" 
+                      className="w-full relative inline-flex items-center justify-center gap-3 bg-white text-slate-950 font-black py-4 px-8 rounded-xl transition-all duration-300 hover:bg-blue-600 hover:text-white group/btn overflow-hidden"
+                    >
+                      <span className="relative z-10">Describir mi Proyecto</span>
+                      <ArrowRight size={18} className="relative z-10 group-hover/btn:translate-x-1 transition-transform" />
+                      {/* Efecto de brillo en el botón */}
+                      <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/40 to-transparent group-hover/btn:animate-[shimmer_1.5s_infinite] z-0"></div>
+                    </Link>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* Section: PRESENTACIÓN DE PROYECTOS */}
+      <section id="proyectos" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-20 gap-12 border-b border-white/10 pb-12">
+          {/* Columna de Texto Explicativo (Venta Inteligente) */}
+          <div className="max-w-3xl">
+            <h2 className="text-4xl md:text-5xl font-black text-gray-400 tracking-tight mb-6">
+              IMPACTO REAL <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-cyan-400">
+                RESULTADOS MEDIBLES.
+              </span>
+            </h2>
+            <div className="space-y-4 text-gray-400 text-base md:text-lg leading-relaxed">
+              <p>
+                En Nexflow Digital no creamos simples páginas web; desarrollamos <strong>ecosistemas digitales estratégicos</strong>. Entendemos que cada empresa tiene desafíos únicos, por lo que nuestro enfoque es 100% consultivo y a la medida.
+              </p>
+              <p>
+                Analizamos tus cuellos de botella operativos y construimos herramientas (desde plataformas web de alta conversión hasta automatizaciones) diseñadas para <strong>escalar tus ventas, optimizar tu tiempo y elevar tu marca.</strong> Explora nuestros casos de éxito a continuación y descubre cómo transformamos ideas complejas en soluciones digitales de alto rendimiento.
+              </p>
+            </div>
+          </div>
+
+          {/* Columna de Llamado a la Acción y GitHub - Nexflow Digital */}
+          <div className="relative group p-px rounded-3xl overflow-hidden bg-linear-to-br from-blue-500/20 via-transparent to-cyan-400/20">
+            {/* Fondo con Blur y alineación central completa */}
+            <div className="flex flex-col items-center justify-center gap-6 shrink-0 bg-slate-900/80 backdrop-blur-xl p-8 rounded-[23px] border border-white/10 shadow-2xl text-center">
+              
+              {/* Títulos Centrados */}
+              <div className="space-y-2">
+                <p className="text-[10px] font-black tracking-[0.3em] text-blue-500 uppercase">
+                  Consultoría Disponible
+                </p>
+                <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-tight">
+                  ¿Listo para arquitectar <br /> tu próxima solución?
+                </h3>
+              </div>
+
+              {/* Botón Principal con WhatsApp */}
+              <Link 
+                href="https://wa.me/50670767769"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/btn relative w-full inline-flex items-center justify-center gap-3 bg-white text-slate-950 font-black py-4 px-10 rounded-2xl transition-all duration-300 hover:bg-blue-600 hover:text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transform hover:-translate-y-1 active:scale-95"
+              >
+                <FaWhatsapp size={20} className="text-green-600 group-hover/btn:text-white transition-colors" />
+                <span>Hablar con un asesor</span>
+                <div className="w-2 h-2 bg-blue-600 rounded-full group-hover/btn:bg-white animate-pulse"></div>
+              </Link>
+
+              {/* Separador con texto centrado */}
+              <div className="flex items-center gap-4 w-full opacity-30">
+                <div className="h-px grow bg-white"></div>
+                <span className="text-[10px] font-mono text-white uppercase tracking-widest">o también</span>
+                <div className="h-px grow bg-white"></div>
+              </div>
+
+              {/* GitHub Centrado y Minimalista */}
+              <Link 
+                href="https://github.com/merloyflores" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center gap-2 text-white/40 hover:text-blue-400 transition-all text-xs font-bold group/github"
+              >
+                <FaGithub size={24} className="group-hover/github:scale-110 transition-transform mb-1" />
+                <span className="tracking-wide">Explorar Repositorios</span>
+              </Link>
+              
+            </div>
+          </div>
+          </div>
 
         {/* GRID DE PROYECTOS */}
         <div className="grid md:grid-cols-2 gap-8">
@@ -464,7 +559,7 @@ export default function Home() {
             </h2>
             <div className="h-px grow bg-linear-to-r from-blue-500/50 to-transparent hidden md:block" />
             <span className="font-mono text-xs text-blue-400 font-bold uppercase tracking-widest bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">
-              Enterprise_Grade_Automations
+              Automatización Profesional
             </span>
           </div>
 
@@ -520,13 +615,18 @@ export default function Home() {
                 Eliminamos las tareas repetitivas. Diseñamos flujos de trabajo que conectan tus aplicaciones favoritas para que la información fluya sin intervención humana.
               </p>
               <div className="space-y-4">
+                {/* Foco en: Eliminación de cuellos de botella */}
                 <div className="p-4 bg-slate-950 rounded-xl border border-white/5 group-hover:border-cyan-500/20 transition-all">
-                  <p className="text-[10px] font-mono text-cyan-500 mb-1">RUNNING_FLOW</p>
-                  <p className="text-xs text-white">Aprobación de facturas auto-trigger</p>
+                  <p className="text-[10px] font-mono text-cyan-400 mb-1 tracking-widest">AHORRO_DE_TIEMPO_ACTIVO</p>
+                  <p className="text-xs text-white font-medium">Gestión de facturas sin intervención manual</p>
+                  <p className="text-[9px] text-cyan-500/60 mt-1 italic">+90% de rapidez en aprobaciones</p>
                 </div>
-                <div className="p-4 bg-slate-950 rounded-xl border border-white/5 group-hover:border-cyan-500/20 transition-all opacity-50">
-                  <p className="text-[10px] font-mono text-gray-500 mb-1">WAITING_FOR_DATA</p>
-                  <p className="text-xs text-white">Sincronización CRM - SharePoint</p>
+                
+                {/* Foco en: Precisión y Cero Errores */}
+                <div className="p-4 bg-slate-950 rounded-xl border border-white/5 group-hover:border-cyan-500/20 transition-all">
+                  <p className="text-[10px] font-mono text-gray-400 mb-1 tracking-widest">CONTROL_DE_ERRORES_0%</p>
+                  <p className="text-xs text-white font-medium">Sincronización total de expedientes y archivos</p>
+                  <p className="text-[9px] text-gray-500/60 mt-1 italic">Información siempre fiel y actualizada</p>
                 </div>
               </div>
             </div>
@@ -540,12 +640,20 @@ export default function Home() {
               <p className="text-gray-400 text-sm leading-relaxed mb-6 font-light">
                 Creamos aplicaciones móviles y de escritorio personalizadas para capturar datos en el campo o gestionar procesos internos sin necesidad de software costoso de terceros.
               </p>
-              <div className="grid grid-cols-2 gap-2 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
-                <span className="p-2 border border-white/5 rounded text-center group-hover:text-purple-400 transition-colors">UI Moderno</span>
-                <span className="p-2 border border-white/5 rounded text-center group-hover:text-purple-400 transition-colors">Offline Mode</span>
-                <span className="p-2 border border-white/5 rounded text-center group-hover:text-purple-400 transition-colors">Camera Integration</span>
-                <span className="p-2 border border-white/5 rounded text-center group-hover:text-purple-400 transition-colors">GPS Tracking</span>
-              </div>
+                <div className="grid grid-cols-2 gap-2 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                  <span className="p-2 border border-white/5 rounded text-center group-hover:text-purple-400 transition-colors">
+                    Diseño Intuitivo
+                  </span>
+                  <span className="p-2 border border-white/5 rounded text-center group-hover:text-purple-400 transition-colors">
+                    Uso sin Internet
+                  </span>
+                  <span className="p-2 border border-white/5 rounded text-center group-hover:text-purple-400 transition-colors">
+                    Fotos y Escaneo
+                  </span>
+                  <span className="p-2 border border-white/5 rounded text-center group-hover:text-purple-400 transition-colors">
+                    Mapas y GPS
+                  </span>
+                </div>
             </div>
 
             {/* Columna 4: El Cerebro (Dataverse & SQL) */}
@@ -557,8 +665,15 @@ export default function Home() {
                   Nada de esto funciona sin una base sólida. Implementamos <strong>Dataverse</strong> y <strong>SQL Server</strong> para garantizar que tu información sea segura, escalable y esté disponible para todas tus herramientas de Power Platform.
                 </p>
                 <div className="flex gap-4">
-                  <div className="px-4 py-2 bg-white/10 rounded-lg text-xs font-bold text-white backdrop-blur-sm border border-white/20">SQL SECURITY_ON</div>
-                  <div className="px-4 py-2 bg-white/10 rounded-lg text-xs font-bold text-white backdrop-blur-sm border border-white/20">RELATIONAL_DB_READY</div>
+                  {/* Reemplaza SQL SECURITY_ON */}
+                  <div className="px-4 py-2 bg-white/10 rounded-lg text-xs font-bold text-white backdrop-blur-sm border border-white/20">
+                    DATOS PROTEGIDOS
+                  </div>
+                  
+                  {/* Reemplaza RELATIONAL_DB_READY */}
+                  <div className="px-4 py-2 bg-white/10 rounded-lg text-xs font-bold text-white backdrop-blur-sm border border-white/20">
+                    INFORMACIÓN ORGANIZADA
+                  </div>
                 </div>
               </div>
               <div className="relative z-10 w-full md:w-48 bg-slate-950/30 p-4 rounded-2xl border border-white/20 backdrop-blur-md">
@@ -577,22 +692,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="bg-slate-950 py-20 border-t border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-12 text-center">
-          {stats.map((stat, index) => (
-            <div key={index}>
-              <p className="text-5xl font-extrabold text-blue-500 mb-3">{stat.value}</p>
-              <p className="text-lg text-gray-300 font-medium">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Contact Section */}
-      <section id="contacto" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+      <section id="contacto" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="bg-slate-800 p-16 rounded-3xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-16 border border-white/5 relative overflow-hidden">
             <div className="absolute inset-0 bg-linear-to-r from-blue-600/10 to-transparent"></div>
+            
             <div className="relative z-10">
                 <span className="text-blue-500 font-semibold text-lg">¿Listo para transformar tu empresa?</span>
                 <h2 className="text-4xl font-bold text-white mt-3 mb-6">Contáctanos y Potencia tu Proyecto</h2>
@@ -600,18 +704,32 @@ export default function Home() {
                     Déjanos entender tus necesidades únicas y juntos construiremos la solución digital que impulsará tu éxito. Agenda una consulta personalizada y descubre cómo Nexflow Digital puede marcar la diferencia.
                 </p>
             </div>
-            <div className="flex flex-col gap-6 relative z-10">
+
+            <div className="flex flex-col gap-4 relative z-10 w-full md:w-auto">
+                {/* Nuevo Botón: Describir Proyecto */}
+                <Link 
+                  href="/contacto" 
+                  className="bg-blue-600 hover:bg-blue-500 text-white px-10 py-5 rounded-2xl font-bold text-xl flex items-center justify-center gap-3 transition-all shadow-lg hover:scale-[1.02]"
+                >
+                    <FaClipboardList size={24} /> Descríbenos tu proyecto
+                </Link>
+
+                {/* Botón WhatsApp con Icono Correcto */}
                 <Link 
                   href="https://wa.me/50670767769" 
-                  className="bg-green-500 hover:bg-green-600 text-white px-10 py-5 rounded-full font-semibold text-xl flex items-center gap-3 transition-colors shadow-lg"
+                  className="bg-[#25D366] hover:bg-[#22c35e] text-white px-10 py-5 rounded-2xl font-bold text-xl flex items-center justify-center gap-3 transition-all shadow-lg hover:scale-[1.02]"
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                    <Zap size={24} /> Agenda tu Consulta Gratis
+                    <FaWhatsapp size={28} /> WhatsApp Directo
                 </Link>
-                <div className="text-gray-300 text-center text-sm">
-                    <p className="flex items-center gap-2 justify-center"><Mail size={16} /> merloyveitch@gmail.com</p>
-                    <p className="flex items-center gap-2 justify-center mt-1"><Phone size={16} /> +506 70767769</p>
+                <div className="text-gray-300 text-center text-sm mt-4">
+                    <p className="flex items-center gap-2 justify-center hover:text-white transition-colors">
+                      <Mail size={16} /> merloy123@gmail.com
+                    </p>
+                    <p className="flex items-center gap-2 justify-center mt-1 hover:text-white transition-colors">
+                      <Phone size={16} /> +506 7076-7769
+                    </p>
                 </div>
             </div>
         </div>
