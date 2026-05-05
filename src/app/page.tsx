@@ -301,7 +301,14 @@ export default function Home() {
       </div>
 
       {/* Section: PRESENTACIÓN DE PROYECTOS */}
-      <section id="proyectos" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5">
+      <section id="proyectos" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5">        
+        {/* CABECERA INDICADORA */}
+        <div className="flex flex-col mb-12">
+          <span className="text-blue-500 font-mono text-[10px] tracking-[0.4em] uppercase mb-2">Portfolio</span>
+          <h2 className="text-2xl font-bold text-white uppercase tracking-wider">Casos de Éxito Seleccionados</h2>
+          <div className="w-12 h-0.5 bg-blue-600 mt-3"></div>
+        </div>
+
         <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-20 gap-12 border-b border-white/10 pb-12">
           {/* Columna de Texto Explicativo (Venta Inteligente) */}
           <div className="max-w-3xl">
@@ -368,25 +375,23 @@ export default function Home() {
               
             </div>
           </div>
-          </div>
+        </div>
 
-        {/* GRID DE PROYECTOS */}
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* CONTENEDOR FLEX: Permite que los elementos se muevan hacia abajo cuando uno se hace más ancho */}
+        <div className="flex flex-wrap gap-8 items-start">
           
           {/* Proyecto 1: BUKUË */}
-          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-500 shadow-2xl shadow-black/50 hover:-translate-y-1">
+          {/* CLASES CLAVE: resize-x, max-w-full, w-full, md:w-[calc(50%-1rem)] y transiciones específicas para no afectar el drag */}
+          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-colors transform hover:-translate-y-1 shadow-2xl shadow-black/50 resize-x max-w-full w-full md:w-[calc(50%-1rem)] min-w-[300px]">
             {/* Venta de Navegador (Preview) */}
             <div className="aspect-video bg-slate-800 relative overflow-hidden border-b border-white/10">
-              {/* Header Mac */}
               <div className="absolute top-0 w-full h-6 bg-slate-950 flex items-center px-3 gap-1.5 z-20">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
                 <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
                 <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
                 <div className="ml-2 text-[10px] font-mono text-gray-500 tracking-tighter">bukuecr.com</div>
               </div>
-              {/* Overlay Azul Hover */}
               <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
-              {/* Iframe */}
               <div className="absolute top-6 bottom-0 w-full bg-white">
                 <iframe src="https://www.bukuecr.com/" className="w-full h-full border-none pointer-events-none" title="Bukue Preview" tabIndex={-1} />
               </div>
@@ -411,15 +416,20 @@ export default function Home() {
                 <Link href="https://www.bukuecr.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white font-black text-xs uppercase tracking-widest hover:text-blue-400 transition-colors">
                   <ExternalLink size={16} /> Ver Sitio
                 </Link>
-                <Link href="https://github.com/merloyflores/bukue-repo-falso" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 font-bold text-xs uppercase tracking-widest hover:text-white transition-colors">
+                <Link href="https://github.com/merloyflores/BUKU-" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 font-bold text-xs uppercase tracking-widest hover:text-white transition-colors">
                   <FaGithub size={16} /> Repo
                 </Link>
               </div>
             </div>
+            
+            {/* Indicador visual de que se puede estirar */}
+            <div className="absolute bottom-0 right-0 w-4 h-4 cursor-ew-resize opacity-50 group-hover:opacity-100 pointer-events-none flex items-end justify-end p-1">
+              <div className="w-2 h-2 border-r-2 border-b-2 border-gray-400 rounded-br-sm"></div>
+            </div>
           </div>
 
           {/* Proyecto 2: Lorena de la Garza */}
-          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-500 shadow-2xl shadow-black/50 hover:-translate-y-1">
+          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-colors transform hover:-translate-y-1 shadow-2xl shadow-black/50 resize-x max-w-full w-full md:w-[calc(50%-1rem)] min-w-[300px]">
             <div className="aspect-video bg-slate-800 relative overflow-hidden border-b border-white/10">
               <div className="absolute top-0 w-full h-6 bg-slate-950 flex items-center px-3 gap-1.5 z-20">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
@@ -452,15 +462,19 @@ export default function Home() {
                 <Link href="https://violencia-obstetrica-landing.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white font-black text-xs uppercase tracking-widest hover:text-purple-400 transition-colors">
                   <ExternalLink size={16} /> Ver Sitio
                 </Link>
-                <Link href="https://github.com/merloyflores/lorena-repo-falso" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 font-bold text-xs uppercase tracking-widest hover:text-white transition-colors">
+                <Link href="https://github.com/merloyflores/violencia-obstetrica-landing" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 font-bold text-xs uppercase tracking-widest hover:text-white transition-colors">
                   <FaGithub size={16} /> Repo
                 </Link>
               </div>
             </div>
+
+            <div className="absolute bottom-0 right-0 w-4 h-4 cursor-ew-resize opacity-50 group-hover:opacity-100 pointer-events-none flex items-end justify-end p-1">
+              <div className="w-2 h-2 border-r-2 border-b-2 border-gray-400 rounded-br-sm"></div>
+            </div>
           </div>
 
           {/* Proyecto 3: Clínica Podológica */}
-          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition-all duration-500 shadow-2xl shadow-black/50 hover:-translate-y-1">
+          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition-colors transform hover:-translate-y-1 shadow-2xl shadow-black/50 resize-x max-w-full w-full md:w-[calc(50%-1rem)] min-w-[300px]">
             <div className="aspect-video bg-slate-800 relative overflow-hidden border-b border-white/10">
               <div className="absolute top-0 w-full h-6 bg-slate-950 flex items-center px-3 gap-1.5 z-20">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
@@ -493,15 +507,19 @@ export default function Home() {
                 <Link href="https://clinica-podologica.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white font-black text-xs uppercase tracking-widest hover:text-cyan-400 transition-colors">
                   <ExternalLink size={16} /> Ver Sitio
                 </Link>
-                <Link href="https://github.com/merloyflores/clinica-repo-falso" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 font-bold text-xs uppercase tracking-widest hover:text-white transition-colors">
+                <Link href="https://github.com/merloyflores/clinica-podologia" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 font-bold text-xs uppercase tracking-widest hover:text-white transition-colors">
                   <FaGithub size={16} /> Repo
                 </Link>
               </div>
             </div>
+
+            <div className="absolute bottom-0 right-0 w-4 h-4 cursor-ew-resize opacity-50 group-hover:opacity-100 pointer-events-none flex items-end justify-end p-1">
+              <div className="w-2 h-2 border-r-2 border-b-2 border-gray-400 rounded-br-sm"></div>
+            </div>
           </div>
 
           {/* Proyecto 4: PrimeStay Rentals */}
-          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-500 shadow-2xl shadow-black/50 hover:-translate-y-1">
+          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-colors transform hover:-translate-y-1 shadow-2xl shadow-black/50 resize-x max-w-full w-full md:w-[calc(50%-1rem)] min-w-[300px]">
             <div className="aspect-video bg-slate-800 relative overflow-hidden border-b border-white/10">
               <div className="absolute top-0 w-full h-6 bg-slate-950 flex items-center px-3 gap-1.5 z-20">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
@@ -534,10 +552,14 @@ export default function Home() {
                 <Link href="https://primestay-rentals.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white font-black text-xs uppercase tracking-widest hover:text-emerald-400 transition-colors">
                   <ExternalLink size={16} /> Ver Sitio
                 </Link>
-                <Link href="https://github.com/merloyflores/primestay-repo-falso" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 font-bold text-xs uppercase tracking-widest hover:text-white transition-colors">
+                <Link href="https://github.com/merloyflores/primestay-rentals" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 font-bold text-xs uppercase tracking-widest hover:text-white transition-colors">
                   <FaGithub size={16} /> Repo
                 </Link>
               </div>
+            </div>
+
+            <div className="absolute bottom-0 right-0 w-4 h-4 cursor-ew-resize opacity-50 group-hover:opacity-100 pointer-events-none flex items-end justify-end p-1">
+              <div className="w-2 h-2 border-r-2 border-b-2 border-gray-400 rounded-br-sm"></div>
             </div>
           </div>
 
