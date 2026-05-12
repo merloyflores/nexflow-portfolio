@@ -9,9 +9,6 @@ export default function DesarrolloWebPage() {
         
         {/* Header del Servicio */}
         <div className="mb-16 border-b border-white/10 pb-16 text-center md:text-left">
-          <Link href="/#servicios" className="text-blue-500 hover:text-blue-400 text-sm font-bold tracking-wider uppercase mb-6 inline-block">
-            &larr; Servicios
-          </Link>
           <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
             Desarrollo Web <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-300">
