@@ -435,7 +435,7 @@ export default function Home() {
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
                 <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
                 <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-                <div className="ml-2 text-[10px] font-mono text-gray-500 tracking-tighter truncate">violencia-obstetrica.vercel.app</div>
+                <div className="ml-2 text-[10px] font-mono text-gray-500 tracking-tighter truncate">derechoshumanosconlore.org</div>
               </div>
               <div className="absolute inset-0 bg-purple-900/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
               <div className="absolute top-6 bottom-0 w-full bg-white">
