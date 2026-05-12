@@ -382,7 +382,7 @@ export default function Home() {
           
           {/* Proyecto 1: BUKUË */}
           {/* CLASES CLAVE: resize-x, max-w-full, w-full, md:w-[calc(50%-1rem)] y transiciones específicas para no afectar el drag */}
-          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-colors transform hover:-translate-y-1 shadow-2xl shadow-black/50 resize-x max-w-full w-full md:w-[calc(50%-1rem)] min-w-[300px]">
+          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-colors transform hover:-translate-y-1 shadow-2xl shadow-black/50 resize-x max-w-full w-full md:w-[calc(50%-1rem)] min-w-75">
             {/* Venta de Navegador (Preview) */}
             <div className="aspect-video bg-slate-800 relative overflow-hidden border-b border-white/10">
               <div className="absolute top-0 w-full h-6 bg-slate-950 flex items-center px-3 gap-1.5 z-20">
@@ -429,7 +429,7 @@ export default function Home() {
           </div>
 
           {/* Proyecto 2: Lorena de la Garza */}
-          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-colors transform hover:-translate-y-1 shadow-2xl shadow-black/50 resize-x max-w-full w-full md:w-[calc(50%-1rem)] min-w-[300px]">
+          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-colors transform hover:-translate-y-1 shadow-2xl shadow-black/50 resize-x max-w-full w-full md:w-[calc(50%-1rem)] min-w-75">
             <div className="aspect-video bg-slate-800 relative overflow-hidden border-b border-white/10">
               <div className="absolute top-0 w-full h-6 bg-slate-950 flex items-center px-3 gap-1.5 z-20">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
@@ -439,7 +439,7 @@ export default function Home() {
               </div>
               <div className="absolute inset-0 bg-purple-900/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
               <div className="absolute top-6 bottom-0 w-full bg-white">
-                <iframe src="https://violencia-obstetrica-landing.vercel.app/" className="w-full h-full border-none pointer-events-none" title="Lorena Preview" tabIndex={-1} />
+                <iframe src="https://derechoshumanosconlore.org/" className="w-full h-full border-none pointer-events-none" title="Lorena Preview" tabIndex={-1} />
               </div>
             </div>
             
@@ -459,7 +459,7 @@ export default function Home() {
                 ))}
               </div>
               <div className="flex items-center gap-6">
-                <Link href="https://violencia-obstetrica-landing.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white font-black text-xs uppercase tracking-widest hover:text-purple-400 transition-colors">
+                <Link href="https://derechoshumanosconlore.org/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white font-black text-xs uppercase tracking-widest hover:text-purple-400 transition-colors">
                   <ExternalLink size={16} /> Ver Sitio
                 </Link>
                 <Link href="https://github.com/merloyflores/violencia-obstetrica-landing" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 font-bold text-xs uppercase tracking-widest hover:text-white transition-colors">
@@ -474,7 +474,7 @@ export default function Home() {
           </div>
 
           {/* Proyecto 3: Clínica Podológica */}
-          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition-colors transform hover:-translate-y-1 shadow-2xl shadow-black/50 resize-x max-w-full w-full md:w-[calc(50%-1rem)] min-w-[300px]">
+          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition-colors transform hover:-translate-y-1 shadow-2xl shadow-black/50 resize-x max-w-full w-full md:w-[calc(50%-1rem)] min-w-75">
             <div className="aspect-video bg-slate-800 relative overflow-hidden border-b border-white/10">
               <div className="absolute top-0 w-full h-6 bg-slate-950 flex items-center px-3 gap-1.5 z-20">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
@@ -519,7 +519,7 @@ export default function Home() {
           </div>
 
           {/* Proyecto 4: PrimeStay Rentals */}
-          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-colors transform hover:-translate-y-1 shadow-2xl shadow-black/50 resize-x max-w-full w-full md:w-[calc(50%-1rem)] min-w-[300px]">
+          <div className="group relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-colors transform hover:-translate-y-1 shadow-2xl shadow-black/50 resize-x max-w-full w-full md:w-[calc(50%-1rem)] min-w-75">
             <div className="aspect-video bg-slate-800 relative overflow-hidden border-b border-white/10">
               <div className="absolute top-0 w-full h-6 bg-slate-950 flex items-center px-3 gap-1.5 z-20">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
