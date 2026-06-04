@@ -95,7 +95,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3 justify-center md:justify-start">
                 <MapPin size={16} className="text-blue-500" />
-                <span>Costa Rica</span>
+                <span>Alajuela, Costa Rica</span>
               </li>
             </ul>
 

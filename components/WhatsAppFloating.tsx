@@ -46,7 +46,7 @@ export default function WhatsAppFloating() {
       }}
       aria-label="Contactar por WhatsApp"
     >
-      <FaWhatsapp size={48} className={isOverFooter ? '' : 'animate-pulse group-hover:animate-none'} />
+      <FaWhatsapp size={42} className={isOverFooter ? '' : 'animate-pulse group-hover:animate-none'} />
       
       <span className="absolute right-16 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none shadow-xl">
         ¿Hablamos de tu proyecto? 🚀
