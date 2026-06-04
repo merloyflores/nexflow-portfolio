@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Mail, MapPin, ChevronRight } from 'lucide-react';
-import { FaLinkedin, FaGithub, FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa6';
+import { FaLinkedin, FaGithub, FaFacebook, FaInstagram, FaTiktok, FaWhatsapp} from 'react-icons/fa6';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -86,6 +86,13 @@ const Footer = () => {
                   merloy123@gmail.com
                 </a>
               </li>
+              {/* NUEVO: Fila directa de WhatsApp con formato telefónico limpio */}
+              <li className="flex items-center gap-3 justify-center md:justify-start">
+                <FaWhatsapp size={18} className="text-blue-500" />
+                <a href="https://wa.me/message/U3ZXMIXGALZJI1" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors">
+                  +506 7265 5724
+                </a>
+              </li>
               <li className="flex items-center gap-3 justify-center md:justify-start">
                 <MapPin size={16} className="text-blue-500" />
                 <span>Costa Rica</span>
@@ -95,11 +102,12 @@ const Footer = () => {
             {/* COLUMNA 3: Redes para PC */}
             <div className="hidden md:flex flex-col items-start">
               <div className="flex items-center gap-3">
-                <a href="#" className="p-2.5 bg-white/5 rounded-lg hover:bg-blue-600 transition-all"><FaFacebook size={18} /></a>
-                <a href="#" className="p-2.5 bg-white/5 rounded-lg hover:bg-pink-600 transition-all"><FaInstagram size={18} /></a>
+                <a href="https://www.facebook.com/profile.php?id=61590617219236&mibextid" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white/5 rounded-lg hover:bg-blue-600 transition-all"><FaFacebook size={18} /></a>
+                <a href="https://www.instagram.com/nexflowdigitalcr" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white/5 rounded-lg hover:bg-pink-600 transition-all"><FaInstagram size={18} /></a>
                 <a href="#" className="p-2.5 bg-white/5 rounded-lg hover:bg-slate-800 transition-all"><FaTiktok size={18} /></a>
-                <a href="https://www.linkedin.com/in/merloyflores/" className="p-2.5 bg-white/5 rounded-lg hover:bg-blue-500 transition-all"><FaLinkedin size={18} /></a>
-                <a href="https://github.com/merloyflores" className="p-2.5 bg-white/5 rounded-lg hover:bg-slate-700 transition-all"><FaGithub size={18} /></a>
+                <a href="https://www.linkedin.com/in/merloyflores/" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white/5 rounded-lg hover:bg-blue-500 transition-all"><FaLinkedin size={18} /></a>
+                <a href="https://github.com/merloyflores" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white/5 rounded-lg hover:bg-slate-700 transition-all"><FaGithub size={18} /></a>
+                <a href="https://wa.me/message/U3ZXMIXGALZJI1" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white/5 rounded-lg hover:bg-green-600 text-white transition-all" title="Escríbenos por WhatsApp"><FaWhatsapp size={18} /></a>
               </div>
             </div>
           </div>

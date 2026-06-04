@@ -1,5 +1,6 @@
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import WhatsAppFloating from '../../components/WhatsAppFloating'; // Importación inteligente del botón flotante
 import './globals.css';
 
 export const metadata = {
@@ -35,11 +36,20 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <body className="bg-slate-900 text-white antialiased">
+        {/* El Navbar queda arriba con su propio flujo (asegúrate de que tenga z-50 en su propio componente) */}
         <Navbar />
-        <main className="min-h-screen pt-16">
-          {children}
-        </main>
-        <Footer />
+        
+        {/* Contenedor relativo global que sirve de frontera para el botón absoluto */}
+        <div className="relative min-h-screen flex flex-col">
+          <main className="flex-grow pt-16">
+            {children}
+          </main>
+
+          {/* El botón ahora sabe exactamente dónde termina el main y dónde empieza el footer */}
+          <WhatsAppFloating />
+
+          <Footer />
+        </div>
       </body>
     </html>
   );

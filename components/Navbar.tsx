@@ -58,7 +58,7 @@ const Navbar = () => {
 
           <div className="flex items-center gap-4">
             <Link 
-              href="https://wa.me/50670767769" 
+              href="https://wa.me/message/U3ZXMIXGALZJI1" 
               className="hidden sm:flex bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-full text-sm font-bold items-center gap-2 transition-all shadow-lg shadow-blue-200 hover:shadow-blue-300 transform hover:-translate-y-0.5"
             >
               <FaWhatsapp size={18}/> Hablemos
@@ -123,7 +123,7 @@ const Navbar = () => {
 
           {/* BOTÓN: WHATSAPP */}
           <Link 
-            href="https://wa.me/50670767769"
+            href="https://wa.me/message/U3ZXMIXGALZJI1"
             className="flex items-center justify-center gap-3 bg-blue-600 text-white px-5 py-4 rounded-2xl font-black shadow-lg shadow-blue-200 active:scale-95 transition-transform"
             target="_blank" 
             rel="noopener noreferrer"

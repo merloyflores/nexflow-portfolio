@@ -393,7 +393,7 @@ export default function Home() {
               </div>
               <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
               <div className="absolute top-6 bottom-0 w-full bg-white">
-                <iframe src="https://www.bukuecr.com/" className="w-full h-full border-none pointer-events-none" title="Bukue Preview" tabIndex={-1} />
+                <iframe src="https://buku-web.vercel.app/" className="w-full h-full border-none pointer-events-none" title="Bukue Preview" tabIndex={-1} />
               </div>
             </div>
             
@@ -738,7 +738,7 @@ export default function Home() {
 
                 {/* Botón WhatsApp con Icono Correcto */}
                 <Link 
-                  href="https://wa.me/50670767769" 
+                  href="https://wa.me/message/U3ZXMIXGALZJI1" 
                   className="bg-[#25D366] hover:bg-[#22c35e] text-white px-10 py-5 rounded-2xl font-bold text-xl flex items-center justify-center gap-3 transition-all shadow-lg hover:scale-[1.02]"
                   target="_blank" 
                   rel="noopener noreferrer"
@@ -750,7 +750,7 @@ export default function Home() {
                       <Mail size={16} /> merloy123@gmail.com
                     </p>
                     <p className="flex items-center gap-2 justify-center mt-1 hover:text-white transition-colors">
-                      <Phone size={16} /> +506 7076-7769
+                      <Phone size={16} /> +506 7265-5724
                     </p>
                 </div>
             </div>
