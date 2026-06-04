@@ -51,6 +51,9 @@ const Footer = () => {
             <a href="https://github.com/merloyflores" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white/5 rounded-lg hover:bg-slate-700 hover:text-white transition-all" aria-label="GitHub">
               <FaGithub size={18} />
             </a>
+            <a href="https://wa.me/message/U3ZXMIXGALZJI1" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white/5 rounded-lg hover:bg-green-600 text-white transition-all" title="Escríbenos por WhatsApp">
+              <FaWhatsapp size={18} />
+            </a>
           </div>
         </div>
 
