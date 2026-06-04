@@ -345,7 +345,7 @@ export default function Home() {
 
               {/* Botón Principal con WhatsApp */}
               <Link 
-                href="https://wa.me/50670767769"
+                href="https://wa.me/message/U3ZXMIXGALZJI1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group/btn relative w-full inline-flex items-center justify-center gap-3 bg-white text-slate-950 font-black py-4 px-10 rounded-2xl transition-all duration-300 hover:bg-blue-600 hover:text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transform hover:-translate-y-1 active:scale-95"
