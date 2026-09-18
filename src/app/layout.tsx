@@ -41,7 +41,7 @@ export default function RootLayout({
         
         {/* Contenedor relativo global que sirve de frontera para el botón absoluto */}
         <div className="relative min-h-screen flex flex-col">
-          <main className="flex-grow pt-16">
+          <main className="flex-grow">
             {children}
           </main>
 
