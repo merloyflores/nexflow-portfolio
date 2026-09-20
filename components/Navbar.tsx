@@ -180,7 +180,7 @@ const Navbar = () => {
             </button>
 
             <div
-              className={`absolute left-1/2 top-full w-[26rem] -translate-x-1/2 pt-3 transition-all duration-200 ${
+              className={`absolute left-1/2 top-full w-104 -translate-x-1/2 pt-3 transition-all duration-200 ${
                 menu ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-1 opacity-0'
               }`}
             >

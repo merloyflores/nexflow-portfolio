@@ -59,7 +59,7 @@ export default function LegalDocument({ title, updated, intro, sections, other }
               </section>
             ))}
 
-            <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+            <div className="rounded-2xl border border-white/10 bg-white/2 p-6">
               <p className="text-slate-300">
                 ¿Tienes dudas sobre este documento? Escríbenos a{' '}
                 <a
