@@ -128,6 +128,18 @@ export default function WhatsAppFloating() {
     return () => window.removeEventListener('keydown', onKey);
   }, [open]);
 
+  // Con el panel abierto en móvil, evita que la página de atrás se mueva
+  // con el dedo mientras se lee una respuesta — sin esto, un scroll
+  // accidental sobre el fondo desordena todo detrás del panel.
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [open]);
+
   if (pathname === '/contacto') return null;
 
   const toggle = () => {
@@ -140,19 +152,35 @@ export default function WhatsAppFloating() {
   };
 
   return (
-    <div
-      ref={wrapRef}
-      className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-3 will-change-transform sm:bottom-6 sm:right-6"
-    >
+    <>
       <style>{`
         @keyframes nf-wa-pop { from { opacity: 0; transform: translateY(12px) scale(.98) } to { opacity: 1; transform: none } }
+        @keyframes nf-wa-fade { from { opacity: 0 } to { opacity: 1 } }
         .nf-wa-panel { animation: nf-wa-pop .22s cubic-bezier(.2,.7,.2,1) both; }
+        .nf-wa-backdrop { animation: nf-wa-fade .2s ease-out both; }
         @media (prefers-reduced-motion: reduce) {
-          .nf-wa-panel { animation: none; }
+          .nf-wa-panel, .nf-wa-backdrop { animation: none; }
         }
       `}</style>
 
-      {/* Panel de preguntas frecuentes */}
+      {/* Fondo difuminado, solo en móvil: separa el panel del contenido de
+          la página que se ve detrás (navbar, texto de la sección) y evita
+          que todo se sienta amontonado. En pantallas más grandes el panel
+          ya tiene suficiente aire alrededor y no lo necesita. */}
+      {open && (
+        <button
+          type="button"
+          aria-label="Cerrar preguntas frecuentes"
+          onClick={() => setOpen(false)}
+          className="nf-wa-backdrop fixed inset-0 z-30 bg-slate-950/60 backdrop-blur-sm sm:hidden"
+        />
+      )}
+
+      <div
+        ref={wrapRef}
+        className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-3 will-change-transform sm:bottom-6 sm:right-6"
+      >
+        {/* Panel de preguntas frecuentes */}
       {open && (
         <div
           role="dialog"
@@ -275,6 +303,7 @@ export default function WhatsAppFloating() {
           </span>
         </button>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
