@@ -36,6 +36,7 @@ const links = [
   { href: '/#proyectos', label: 'Proyectos', id: 'proyectos' },
   { href: '/#proceso', label: 'Proceso', id: 'proceso' },
   { href: '/#equipo', label: 'Nosotros', id: 'equipo' },
+  { href: '/blog', label: 'Blog', id: 'blog' },
 ];
 
 // Secciones de la home que el menú resalta mientras haces scroll
@@ -130,6 +131,11 @@ const Navbar = () => {
     pathname.startsWith('/desarrollo-web') ||
     pathname.startsWith('/auditoria-tecnica');
 
+  // Un link normal se marca "activo" por scroll-spy (secciones de la home);
+  // un link a otra página (como /blog) se marca activo por la URL actual.
+  const isLinkActive = (link: (typeof links)[number]) =>
+    activeId === link.id || (!link.href.includes('#') && pathname.startsWith(link.href));
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4">
       <nav
@@ -207,7 +213,7 @@ const Navbar = () => {
 
           {links.map((l) => (
             <li key={l.id}>
-              <Link href={l.href} className={linkCls(activeId === l.id)}>
+              <Link href={l.href} className={linkCls(isLinkActive(l))}>
                 {l.label}
               </Link>
             </li>

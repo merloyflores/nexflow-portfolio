@@ -129,6 +129,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/blog" className={linkCls}>
+                  <ChevronRight size={14} className="text-sky-400" /> Blog
+                </Link>
+              </li>
+              <li>
                 <Link href="/contacto" className={linkCls}>
                   <ChevronRight size={14} className="text-sky-400" /> Contacto
                 </Link>
