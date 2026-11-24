@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import LegalDocument, { type LegalSection } from '../../../components/Legaldocument';
+import LegalDocument, { type LegalSection } from '../../../components/site/LegalDocument';
 
 export const metadata: Metadata = {
   title: 'Política de Privacidad | Nexflow Digital',
@@ -42,7 +42,7 @@ const sections: LegalSection[] = [
       <>
         <p>Utilizamos la información recopilada para:</p>
         <ul>
-          <li>Facilitar la creación de propuestas técnicas y auditorías.</li>
+          <li>Facilitar la creación de propuestas técnicas y diagnósticos.</li>
           <li>Responder a consultas de soporte técnico y servicio al cliente.</li>
           <li>Enviar información administrativa o avisos de actualizaciones en sus sistemas.</li>
           <li>Cumplir con obligaciones legales y regulatorias.</li>

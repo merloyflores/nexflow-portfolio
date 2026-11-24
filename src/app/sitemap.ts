@@ -1,65 +1,14 @@
-// app/sitemap.ts
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
 import { getAllPosts } from '@/lib/blog';
+import { SITE_URL } from '@/lib/site';
 
-// Cambia esto por tu dominio real en cuanto lo compres (revisa también
-// SITE_URL en src/app/blog/page.tsx y src/app/blog/[slug]/page.tsx,
-// que usan la misma idea para las etiquetas SEO y Open Graph).
-const SITE_URL = 'https://nexflow-portfolio.vercel.app';
-
+// Las páginas del sitio. Cuando compres el dominio, cambiá SITE_URL en src/lib/site.ts y listo.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes: MetadataRoute.Sitemap = [
-    {
-      url: SITE_URL,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: `${SITE_URL}/desarrollo-web`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/auditoria-tecnica`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/contacto`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/blog`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/privacidad`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${SITE_URL}/terminos`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
+  const pages: [string, number][] = [
+    ['', 1], ['/sitios-web', 0.9], ['/cirelia-business', 0.9], ['/automatizacion', 0.9], ['/apps', 0.9], ['/clinicas', 0.9], ['/como-trabajamos', 0.7], ['/diagnostico', 0.8],
+    ['/proyectos', 0.8], ['/nosotros', 0.7], ['/contacto', 0.7], ['/blog', 0.7], ['/privacidad', 0.2], ['/terminos', 0.2],
   ];
-
-  // Cada artículo del blog se agrega solo, leyendo content/blog/*.md
-  const blogRoutes: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
-    url: `${SITE_URL}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: 'monthly',
-    priority: 0.6,
-  }));
-
-  return [...staticRoutes, ...blogRoutes];
+  const statics = pages.map(([path, priority]) => ({ url: `${SITE_URL}${path}`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority }));
+  const posts = getAllPosts().map((p) => ({ url: `${SITE_URL}/blog/${p.slug}`, lastModified: new Date(p.date), changeFrequency: 'yearly' as const, priority: 0.6 }));
+  return [...statics, ...posts];
 }

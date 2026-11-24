@@ -6,7 +6,7 @@ tags: ["Páginas web", "Pymes", "Auditoría técnica"]
 cover: "web"
 ---
 
-Unos segundos de más al cargar una página son suficientes para que una persona se vaya sin ver lo que ofreces. La velocidad de carga no es un detalle técnico menor: afecta directamente cuántos visitantes se quedan, y también cómo te posiciona Google. Estos son los errores más frecuentes que hacen lento un sitio web, y qué hacer en cada caso.
+Unos segundos de más al cargar una página son suficientes para que una persona se vaya sin ver lo que ofrecés. La velocidad de carga no es un detalle técnico menor: afecta directamente cuántos visitantes se quedan, y también cómo te posiciona Google. Estos son los errores más frecuentes que hacen lento un sitio web, y qué hacer en cada caso.
 
 ## Imágenes sin optimizar
 
@@ -16,7 +16,7 @@ Este es, por lejos, el problema más común. Una foto tomada con un celular mode
 
 ## Demasiados plugins o scripts externos
 
-Cada plugin, botón de red social embebido, chat externo o script de terceros que agregas a un sitio suma peso y tiempo de carga adicional. Es fácil ir acumulando herramientas con el tiempo sin notar el efecto combinado.
+Cada plugin, botón de red social embebido, chat externo o script de terceros que agregás a un sitio suma peso y tiempo de carga adicional. Es fácil ir acumulando herramientas con el tiempo sin notar el efecto combinado.
 
 **La solución:** revisar periódicamente qué scripts y plugins realmente se usan, y eliminar los que ya no aportan valor. Menos siempre es más rápido.
 
@@ -42,4 +42,4 @@ Las animaciones bien hechas dan vida a un sitio. Las animaciones mal implementad
 
 No hace falta adivinar. Herramientas gratuitas como PageSpeed Insights de Google te dan un diagnóstico específico de qué está ralentizando tu sitio, con números concretos en lugar de una sensación general de "se siente lento".
 
-**¿Quieres saber exactamente qué está frenando tu sitio actual?** Esto es justo lo que revisamos en una [auditoría técnica](/auditoria-tecnica). [Escríbeme por WhatsApp](https://wa.me/message/U3ZXMIXGALZJI1) si quieres empezar.
+**¿Querés saber exactamente qué está frenando tu sitio actual?** Esto es justo lo que revisamos en el [diagnóstico gratis](/diagnostico). [Escribinos por WhatsApp](https://wa.me/message/U3ZXMIXGALZJI1) si querés empezar.

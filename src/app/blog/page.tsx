@@ -1,294 +1,86 @@
-import Link from 'next/link';
 import type { Metadata } from 'next';
-import { getAllPosts, type BlogPost } from '@/lib/blog';
-import { getViewCounts } from '@/lib/views';
-import { CoverArt } from '../../../components/blog/CoverArt';
-
-const HEADING = 'font-[family-name:var(--font-display)]';
-const focusRing =
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950';
-
-const PAGE_SIZE = 6;
-const TOP_READ_COUNT = 3;
-
-// Vuelve a calcular esta página cada minuto, para que "Más leídos" refleje
-// vistas recientes sin tener que reconstruir todo el sitio.
-export const revalidate = 60;
-
-function formatDate(date: string) {
-  return new Date(`${date}T12:00:00`).toLocaleDateString('es-CR', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
-}
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import Cover from '../../../components/blog/Cover';
+import { Container, CtaBand } from '../../../components/site/ui';
+import { TOPICS, TOPIC_ORDER, formatDate, getAllPosts, isTopic, type BlogPost } from '@/lib/blog';
 
 export const metadata: Metadata = {
-  title: 'Blog | Nexflow Digital',
-  description:
-    'Guías claras sobre páginas web, automatización y datos para pequeñas y medianas empresas en Costa Rica.',
-  openGraph: {
-    title: 'Blog | Nexflow Digital',
-    description:
-      'Guías claras sobre páginas web, automatización y datos para pequeñas y medianas empresas en Costa Rica.',
-    type: 'website',
-  },
+  title: 'Blog',
+  description: 'Guías prácticas sobre sitios web, tiendas en línea, automatización y datos para negocios de Costa Rica.',
 };
 
-type Props = {
-  searchParams: Promise<{ page?: string }>;
-};
+/*
+ * Blog (v6.1). Arriba, el artículo más reciente como banner grande; después los temas (con el color de cada
+ * servicio) y la cuadrícula de artículos, cada uno con su portada dibujada. Los temas filtran con ?tema=web, etc.
+ */
+function PostCard({ p, i }: { p: BlogPost; i: number }) {
+  const t = TOPICS[p.cover];
+  return (
+    <li data-rv={i % 3}>
+      <Link href={`/blog/${p.slug}`} className="post-card group block" data-tone={t.tone}>
+        <Cover kind={p.cover} slug={p.slug} />
+        <p className="topic mt-5">{t.label}</p>
+        <h3 className="mt-2 text-[1.15rem] font-semibold leading-snug tracking-[-0.02em]">{p.title}</h3>
+        <p className="mt-2.5 text-[.94rem] leading-relaxed ink2 line-clamp-2">{p.excerpt}</p>
+        <p className="t-small mt-3">{formatDate(p.date)} · {p.readingTime}</p>
+      </Link>
+    </li>
+  );
+}
 
-export default async function BlogIndexPage({ searchParams }: Props) {
-  const { page: pageParam } = await searchParams;
-  const posts = getAllPosts();
-  const [featured, ...restAll] = posts;
-
-  const requestedPage = Number(pageParam) || 1;
-  const totalPages = Math.max(1, Math.ceil(restAll.length / PAGE_SIZE));
-  const currentPage = Math.min(Math.max(1, requestedPage), totalPages);
-  const pageStart = (currentPage - 1) * PAGE_SIZE;
-  const pagePosts = restAll.slice(pageStart, pageStart + PAGE_SIZE);
-
-  const viewCounts = await getViewCounts();
-  const topRead: (BlogPost & { views: number })[] = posts
-    .map((post) => ({ ...post, views: viewCounts[post.slug] ?? 0 }))
-    .filter((post) => post.views > 0)
-    .sort((a, b) => b.views - a.views)
-    .slice(0, TOP_READ_COUNT);
+export default async function Page({ searchParams }: { searchParams: Promise<{ tema?: string }> }) {
+  const { tema } = await searchParams;
+  const topic = isTopic(tema) ? tema : null;
+  const all = getAllPosts();
+  const posts = topic ? all.filter((p) => p.cover === topic) : all;
+  const [first, ...rest] = posts;
+  const count = (k: string) => all.filter((p) => p.cover === k).length;
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-100">
-      {/* Fondo con el mismo glow orbitado que usamos en la vitrina de proyectos */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[560px] overflow-hidden"
-      >
-        <div className="absolute left-1/2 top-[-220px] h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-sky-500/10 blur-[120px]" />
-        <div className="absolute left-[15%] top-[80px] h-[280px] w-[280px] rounded-full bg-emerald-400/[0.07] blur-[100px]" />
-      </div>
-
-      <section className="mx-auto max-w-5xl px-6 pb-20 pt-28 sm:pt-36">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-sky-400">
-          Blog de Nexflow Digital
-        </p>
-        <h1
-          className={`${HEADING} mt-3 max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-5xl`}
-        >
-          Ideas prácticas para pymes que quieren crecer con tecnología
-        </h1>
-        <p className="mt-4 max-w-xl text-base text-slate-400 sm:text-lg">
-          Artículos directos, sin tecnicismos innecesarios, sobre páginas
-          web, automatización y datos.
-        </p>
-
-        {currentPage === 1 && featured && (
-          <Link
-            href={`/blog/${featured.slug}`}
-            className={`group relative mt-14 block overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] transition-all hover:border-sky-400/40 hover:bg-white/[0.05] ${focusRing}`}
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
-              <div className="relative aspect-video overflow-hidden sm:aspect-auto">
-                <CoverArt
-                  kind={featured.cover}
-                  className="h-full w-full scale-105 transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent sm:bg-gradient-to-r" />
-              </div>
-
-              <div className="relative p-8 sm:p-10">
-                <span className="relative inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-400/10 px-3 py-1 text-xs font-medium text-sky-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
-                  Más reciente
-                </span>
-
-                <h2
-                  className={`${HEADING} relative mt-5 text-2xl font-semibold text-white transition-colors group-hover:text-sky-300 sm:text-3xl`}
-                >
-                  {featured.title}
-                </h2>
-
-                <p className="relative mt-4 text-sm text-slate-400 sm:text-base">
-                  {featured.excerpt}
-                </p>
-
-                <div className="relative mt-6 flex flex-wrap items-center gap-3 text-xs text-slate-500">
-                  <time dateTime={featured.date}>{formatDate(featured.date)}</time>
-                  <span aria-hidden="true">·</span>
-                  <span>{featured.readingTime}</span>
-                </div>
-
-                <span className="relative mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-white">
-                  Leer artículo completo
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    className="h-4 w-4 transition-transform group-hover:translate-x-1"
-                  >
-                    <path
-                      d="M4 10h12M11 5l5 5-5 5"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </div>
-          </Link>
-        )}
-
-        {/* Más leídos: aparece solo cuando ya hay vistas reales que mostrar */}
-        {currentPage === 1 && topRead.length > 0 && (
-          <div className="mt-16">
-            <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">
-              Más leídos
-            </h3>
-
-            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              {topRead.map((post, index) => (
-                <Link
-                  key={post.slug}
-                  href={`/blog/${post.slug}`}
-                  className={`group relative flex items-start gap-4 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-all hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.05] ${focusRing}`}
-                >
-                  <span
-                    className={`${HEADING} shrink-0 text-3xl font-semibold text-white/15`}
-                  >
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <div className="min-w-0">
-                    <h4
-                      className={`${HEADING} line-clamp-2 text-sm font-semibold text-white transition-colors group-hover:text-sky-300`}
-                    >
-                      {post.title}
-                    </h4>
-                    <p className="mt-2 text-xs text-slate-500">
-                      {post.views} {post.views === 1 ? 'lectura' : 'lecturas'}
-                    </p>
-                  </div>
-                </Link>
-              ))}
-            </div>
+    <>
+      <section className="relative overflow-hidden">
+        <div className="gridbg gridbg-fade absolute inset-0 -z-10" aria-hidden />
+        <Container className="pt-14 sm:pt-20 pb-10">
+          <div className="max-w-3xl rise">
+            <h1 className="t-h1">Ideas claras para decidir mejor.</h1>
+            <p className="t-lead mt-6">Guías cortas sobre sitios web, tiendas en línea, automatización y datos. Escritas para dueños de negocio, no para programadores.</p>
           </div>
-        )}
 
-        {pagePosts.length > 0 && (
-          <div className="mt-16">
-            <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">
-              Más artículos
-            </h3>
-
-            <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
-              {pagePosts.map((post) => (
-                <Link
-                  key={post.slug}
-                  href={`/blog/${post.slug}`}
-                  className={`group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-all hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.05] ${focusRing}`}
-                >
-                  <div className="relative aspect-video overflow-hidden">
-                    <CoverArt
-                      kind={post.cover}
-                      className="h-full w-full transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-
-                  <div className="flex flex-1 flex-col p-6">
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500">
-                      <time dateTime={post.date}>{formatDate(post.date)}</time>
-                      <span aria-hidden="true">·</span>
-                      <span>{post.readingTime}</span>
-                    </div>
-
-                    <h4
-                      className={`${HEADING} mt-3 text-lg font-semibold text-white transition-colors group-hover:text-sky-300`}
-                    >
-                      {post.title}
-                    </h4>
-
-                    <p className="mt-2 flex-1 text-sm text-slate-400">
-                      {post.excerpt}
-                    </p>
-
-                    {post.tags.length > 0 && (
-                      <div className="mt-5 flex flex-wrap gap-2">
-                        {post.tags.slice(0, 2).map((tag) => (
-                          <span
-                            key={tag}
-                            className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {totalPages > 1 && (
-          <nav
-            aria-label="Paginación del blog"
-            className="mt-12 flex items-center justify-center gap-2"
-          >
-            <Link
-              href={currentPage > 1 ? `/blog?page=${currentPage - 1}` : '#'}
-              aria-disabled={currentPage === 1}
-              tabIndex={currentPage === 1 ? -1 : undefined}
-              className={`flex h-10 w-10 items-center justify-center rounded-full border text-sm transition-colors ${focusRing} ${
-                currentPage === 1
-                  ? 'pointer-events-none border-white/5 text-slate-700'
-                  : 'border-white/10 text-slate-300 hover:border-sky-400/40 hover:text-sky-300'
-              }`}
-            >
-              <span aria-hidden="true">←</span>
-              <span className="sr-only">Página anterior</span>
+          {/* El artículo destacado: el más reciente del tema elegido */}
+          {first && (
+            <Link href={`/blog/${first.slug}`} className="post-card group mt-12 grid gap-8 lg:grid-cols-12 lg:items-center" data-tone={TOPICS[first.cover].tone} data-rv="1">
+              <div className="lg:col-span-7"><Cover kind={first.cover} slug={first.slug} className="!rounded-[1.5rem]" /></div>
+              <div className="lg:col-span-5">
+                <p className="topic">{TOPICS[first.cover].label}</p>
+                <h2 className="t-h2 mt-3">{first.title}</h2>
+                <p className="t-lead mt-4">{first.excerpt}</p>
+                <p className="t-small mt-5">{formatDate(first.date)} · {first.readingTime}</p>
+                <span className="btn btn-ink mt-7">Leer el artículo <ArrowRight size={16} className="arrow" /></span>
+              </div>
             </Link>
-
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
-              <Link
-                key={n}
-                href={n === 1 ? '/blog' : `/blog?page=${n}`}
-                aria-current={n === currentPage ? 'page' : undefined}
-                className={`flex h-10 w-10 items-center justify-center rounded-full text-sm font-medium transition-colors ${focusRing} ${
-                  n === currentPage
-                    ? 'bg-white text-slate-950'
-                    : 'text-slate-400 hover:bg-white/5 hover:text-white'
-                }`}
-              >
-                {n}
-              </Link>
-            ))}
-
-            <Link
-              href={
-                currentPage < totalPages ? `/blog?page=${currentPage + 1}` : '#'
-              }
-              aria-disabled={currentPage === totalPages}
-              tabIndex={currentPage === totalPages ? -1 : undefined}
-              className={`flex h-10 w-10 items-center justify-center rounded-full border text-sm transition-colors ${focusRing} ${
-                currentPage === totalPages
-                  ? 'pointer-events-none border-white/5 text-slate-700'
-                  : 'border-white/10 text-slate-300 hover:border-sky-400/40 hover:text-sky-300'
-              }`}
-            >
-              <span aria-hidden="true">→</span>
-              <span className="sr-only">Página siguiente</span>
-            </Link>
-          </nav>
-        )}
-
-        {posts.length === 0 && (
-          <p className="mt-14 text-slate-400">
-            Pronto vamos a publicar el primer artículo por aquí.
-          </p>
-        )}
+          )}
+        </Container>
       </section>
-    </main>
+
+      <Container className="pb-20 sm:pb-28">
+        <nav aria-label="Temas" className="border-y b py-5 flex flex-wrap items-center gap-2" data-rv>
+          <Link href="/blog" className={`chip ${!topic ? '!border-[var(--ink)] !bg-[var(--ink)] !text-[var(--bg)]' : ''}`}>Todos <span className="opacity-60 num">{all.length}</span></Link>
+          {TOPIC_ORDER.filter((k) => count(k) > 0).map((k) => (
+            <Link key={k} href={`/blog?tema=${k}`} data-tone={TOPICS[k].tone}
+              className={`chip ${topic === k ? '!border-[var(--tone)] !bg-[var(--tone)] !text-white' : ''}`}>
+              <span className="tone-dot" style={topic === k ? { background: '#fff' } : undefined} />{TOPICS[k].label} <span className="opacity-60 num">{count(k)}</span>
+            </Link>
+          ))}
+        </nav>
+
+        <ul className="mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+          {rest.map((p, i) => <PostCard key={p.slug} p={p} i={i} />)}
+        </ul>
+        {posts.length === 0 && <p className="t-body mt-8">No hay artículos de ese tema todavía.</p>}
+      </Container>
+
+      <CtaBand />
+    </>
   );
 }

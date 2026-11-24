@@ -1,93 +1,72 @@
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
-import WhatsAppFloating from '../../components/WhatsAppFloating'; // Importación inteligente del botón flotante
+import type { Metadata, Viewport } from 'next';
+import Navbar from '../../components/site/Navbar';
+import Footer from '../../components/site/Footer';
+import Assistant from '../../components/site/Assistant';
+import Reveal from '../../components/site/Reveal';
+import { brand, colon, sans } from '@/lib/fonts';
+import { EMAIL, PHONE, SITE_URL, SOCIAL } from '@/lib/site';
 import './globals.css';
 
-const SITE_URL = 'https://nexflow-portfolio.vercel.app';
-
-export const metadata = {
-  title: 'Nexflow Digital | Desarrollo Web Next.js y Power Platform',
-  description: 'Especialistas en sistemas de alto rendimiento, automatización con Microsoft Power Platform y desarrollo web moderno en Costa Rica.',
-  keywords: ['Next.js', 'Power BI', 'Power Automate', 'Desarrollo Web', 'Automatización de procesos', 'Costa Rica', 'Software a medida'],
-  authors: [{ name: 'Merloy Flores' }],
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: { default: 'Nexflow Digital | Sitios web, tiendas en línea, automatización y apps en Costa Rica', template: '%s | Nexflow Digital' },
+  description:
+    'Estudio de tecnología en Costa Rica. Sitios web que consiguen clientes, Cirelia Business (tienda en línea, caja e inventario), automatización con Power Platform y apps a la medida.',
+  keywords: ['páginas web Costa Rica', 'tienda en línea Costa Rica', 'punto de venta', 'Power Automate', 'Power BI', 'Power Apps', 'apps a la medida', 'pymes'],
+  authors: [{ name: 'Nexflow Digital' }],
   openGraph: {
-    title: 'Nexflow Digital | Digital Evolution',
-    description: 'Creamos sistemas que integran Next.js y Power Platform para escalar tu negocio.',
-    url: 'https://nexflow-portfolio.vercel.app/',
+    title: 'Nexflow Digital',
+    description: 'Sitios web, tiendas en línea, automatización y apps a la medida para negocios de Costa Rica.',
+    url: SITE_URL,
     siteName: 'Nexflow Digital',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-      },
-    ],
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
     locale: 'es_CR',
     type: 'website',
   },
-  verification: {
-    google: 'KsHePQ17De6rGtYOjzSH96iKcl2giYpEtnzLCRW_f38',
-  },
+  verification: { google: 'KsHePQ17De6rGtYOjzSH96iKcl2giYpEtnzLCRW_f38' },
 };
 
-// Datos estructurados (JSON-LD): le dicen a Google, en su propio "idioma",
-// que Nexflow Digital es un negocio local. Sin `address` a propósito —
-// el perfil de Google Business también está configurado como negocio de
-// área de servicio, sin dirección pública, así que este bloque tiene que
-// coincidir con eso (no hay que inventar una dirección aquí).
-const localBusinessJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'Nexflow Digital',
-  url: SITE_URL,
-  telephone: '+506 7265-5724',
-  email: 'merloy123@gmail.com',
-  founder: {
-    '@type': 'Person',
-    name: 'Merloy Flores',
-  },
-  areaServed: {
-    '@type': 'Country',
-    name: 'Costa Rica',
-  },
-  description:
-    'Desarrollo web en Next.js, automatización con Power Automate y Power Apps, y dashboards con Power BI para pequeñas y medianas empresas en Costa Rica.',
-  sameAs: [
-    'https://www.facebook.com/profile.php?id=61590617219236',
-    'https://www.instagram.com/nexflowdigitalcr',
-    'https://www.linkedin.com/in/merloyflores/',
-    'https://github.com/merloyflores',
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f5f6f8' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0f1a' },
   ],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+// Datos para Google: negocio de área de servicio (sin dirección pública, igual que el perfil de Google).
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Nexflow Digital',
+  url: SITE_URL,
+  telephone: PHONE,
+  email: EMAIL,
+  founder: { '@type': 'Person', name: 'Merloy Flores' },
+  areaServed: { '@type': 'Country', name: 'Costa Rica' },
+  description: 'Sitios web, Cirelia Business (tienda en línea con punto de venta), automatización con Power Platform y apps a la medida.',
+  sameAs: SOCIAL.map((s) => s.href),
+};
+
+/*
+ * Antes de pintar: 1) modo día/noche que eligió la persona (si no eligió, manda el del sistema);
+ * 2) la clase «js», que activa la aparición suave al bajar. Sin JavaScript todo se ve igual, solo que quieto.
+ */
+const BOOT = `try{var t=localStorage.getItem('nexflow:theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}document.documentElement.classList.add('js');`;
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className="scroll-smooth">
-      <body className="bg-slate-900 text-white antialiased">
-        <script
-          type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
-        />
-
-        {/* El Navbar queda arriba con su propio flujo (asegúrate de que tenga z-50 en su propio componente) */}
+    <html lang="es" className={`${sans.variable} ${brand.variable} ${colon.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: BOOT }} />
+      </head>
+      <body className="min-h-screen flex flex-col">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <a href="#contenido" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] btn btn-ink">Saltar al contenido</a>
         <Navbar />
-
-        {/* Contenedor relativo global que sirve de frontera para el botón absoluto */}
-        <div className="relative min-h-screen flex flex-col">
-          <main className="flex-grow">
-            {children}
-          </main>
-
-          {/* El botón ahora sabe exactamente dónde termina el main y dónde empieza el footer */}
-          <WhatsAppFloating />
-
-          <Footer />
-        </div>
+        <main id="contenido" className="flex-1">{children}</main>
+        <Footer />
+        <Assistant />
+        <Reveal />
       </body>
     </html>
   );

@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nexflow Digital · sitio web (v4 «Estudio»)
 
-## Getting Started
+Sitio de Nexflow Digital hecho con Next.js 16 y Tailwind 4.
 
-First, run the development server:
+## Dónde se cambia cada cosa
+
+| Qué | Dónde |
+|---|---|
+| Teléfono, WhatsApp, correo, redes, año de fundación | `src/lib/site.ts` (arriba) |
+| Servicios (nombre, frase, lista, foto, mensaje de WhatsApp) | `src/lib/site.ts` → `SERVICES` |
+| Clientes y logos | `src/lib/site.ts` → `CLIENTS` + `public/logos/` |
+| Proyectos | `src/lib/site.ts` → `PROJECTS` + `public/proyectos/` |
+| Historia | `src/lib/site.ts` → `TIMELINE` |
+| Opiniones de clientes | `src/lib/site.ts` → `TESTIMONIALS` (vacío = la sección no aparece) |
+| Preguntas rápidas del asistente | `components/site/Assistant.tsx` → `QA` |
+| Precios de Cirelia Business | `src/lib/cirelia/plans.ts` → `PLANS` |
+| Artículos del blog | `content/blog/*.md` |
+| Colores, letras y estilos | `src/app/globals.css` |
+
+## Páginas
+
+`/` inicio · `/sitios-web` · `/cirelia-business` (copia de /planes de Cirelia) · `/automatizacion` · `/apps` · `/diagnostico` · `/proyectos` · `/nosotros` · `/blog` · `/contacto` · `/terminos` · `/privacidad`.
+Las direcciones viejas (`/desarrollo-web`, `/ecommerce`, `/cirelia`, `/auditoria-tecnica`) redirigen solas a las nuevas.
+
+Para sumar un servicio nuevo: agregarlo en `SERVICES` y crear su página copiando `src/app/apps/page.tsx` (usa la plantilla `components/site/ServicePage.tsx`).
+
+## Variables de entorno (opcionales)
+
+- `PLANES_VIDEO_URL`: el mismo enlace de YouTube que en Cirelia. Si está, el video aparece en `/cirelia-business`.
+- `KV_REST_API_URL` y `KV_REST_API_TOKEN`: contador de vistas del blog. Sin ellas, el blog funciona igual.
+
+## Formulario
+
+Usa FormSubmit (gratis). La primera vez que alguien envía el formulario llega un correo de activación a `merloy123@gmail.com`: hay que confirmarlo una vez.
+
+## Comandos
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3003
+npm run build
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import LegalDocument, { type LegalSection } from '../../../components/Legaldocument';
+import LegalDocument, { type LegalSection } from '../../../components/site/LegalDocument';
 
 export const metadata: Metadata = {
   title: 'Términos y Condiciones | Nexflow Digital',

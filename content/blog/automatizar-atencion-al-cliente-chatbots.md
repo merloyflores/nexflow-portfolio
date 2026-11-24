@@ -6,15 +6,15 @@ tags: ["Automatización", "Pymes", "Marketing digital"]
 cover: "automation"
 ---
 
-Automatizar parte de tu atención al cliente puede devolverte horas a la semana: preguntas repetidas que ya no tienes que responder una por una, clientes atendidos incluso fuera de tu horario, y un flujo más ordenado para tu equipo. Pero automatizar mal —o automatizar demasiado— puede lograr exactamente el efecto contrario: frustrar a la persona que solo quería hablar con alguien real. La diferencia está en saber qué automatizar y qué no.
+Automatizar parte de tu atención al cliente puede devolverte horas a la semana: preguntas repetidas que ya no tenés que responder una por una, clientes atendidos incluso fuera de tu horario, y un flujo más ordenado para tu equipo. Pero automatizar mal —o automatizar demasiado— puede lograr exactamente el efecto contrario: frustrar a la persona que solo quería hablar con alguien real. La diferencia está en saber qué automatizar y qué no.
 
 ## Lo que sí conviene automatizar
 
-**Preguntas frecuentes repetitivas.** Horario, ubicación, precios generales, cómo hacer un pedido — si respondes lo mismo todos los días, una respuesta automática bien redactada no se siente robótica, se siente eficiente.
+**Preguntas frecuentes repetitivas.** Horario, ubicación, precios generales, cómo hacer un pedido — si respondés lo mismo todos los días, una respuesta automática bien redactada no se siente robótica, se siente eficiente.
 
 **El primer contacto fuera de horario.** Un mensaje automático que confirma que recibiste el mensaje y que responderás en tu horario habitual gestiona la expectativa del cliente, evitando que sienta que lo ignoraste.
 
-**Clasificación inicial de la consulta.** Un menú simple de opciones ("¿Consulta sobre un pedido existente o quieres cotizar algo nuevo?") ayuda a dirigir a la persona más rápido hacia la respuesta correcta, o hacia el miembro de tu equipo indicado.
+**Clasificación inicial de la consulta.** Un menú simple de opciones ("¿Consulta sobre un pedido existente o querés cotizar algo nuevo?") ayuda a dirigir a la persona más rápido hacia la respuesta correcta, o hacia el miembro de tu equipo indicado.
 
 **Confirmaciones y recordatorios.** Confirmar una cita, un pedido o un pago no necesita intervención humana cada vez; es información predecible que se puede automatizar sin perder calidez.
 
@@ -34,4 +34,4 @@ Si un cliente tiene que repetir la misma información varias veces, o queda atra
 
 No hace falta automatizar todo tu proceso de atención de una sola vez. El enfoque más efectivo es identificar la pregunta o el proceso más repetitivo de tu negocio, automatizar solo eso primero, y observar cómo reaccionan tus clientes antes de ampliar a más casos. Automatizar gradualmente, con criterio, da mejores resultados que automatizar todo de golpe con la esperanza de que funcione.
 
-**¿Quieres identificar qué parte de tu atención al cliente se puede automatizar sin perder calidez?** [Escríbeme por WhatsApp](https://wa.me/message/U3ZXMIXGALZJI1) y lo conversamos.
+**¿Querés identificar qué parte de tu atención al cliente se puede automatizar sin perder calidez?** [Escribinos por WhatsApp](https://wa.me/message/U3ZXMIXGALZJI1) y lo conversamos.

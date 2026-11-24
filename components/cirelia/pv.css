@@ -1,0 +1,271 @@
+/* ════════════════════════════════════════════════════════════════════════════
+   v3.7 — /planes, rediseño sobrio.
+   Reglas de la casa para esta página:
+   · Un solo color de acento (índigo). Lo demás es tinta y grises: el color lo ponen las capturas reales.
+   · Botón principal = tinta sólida. Nada de degradados en botones ni en textos.
+   · Títulos con Inter 600 y tracking cerrado; el peso 900 queda prohibido acá.
+   · Movimiento: aparece suave al bajar, fundido entre pantallas. Con «reducir movimiento», nada se mueve.
+   Modo noche: html[data-theme="dark"], o el del sistema si la persona no eligió.
+   ════════════════════════════════════════════════════════════════════════════ */
+
+.pv {
+  --pv-bg: #ffffff;
+  --pv-bg-2: #f7f7f5;
+  --pv-card: #ffffff;
+  --pv-ink: #0c0c10;
+  --pv-ink-2: #3a3a42;
+  --pv-muted: #6b6b74;
+  --pv-line: #e8e8e4;
+  --pv-line-2: #dcdcd6;
+  --pv-accent: #1f7476;
+  --pv-accent-soft: #e8f3f3;
+  --pv-btn: #0c0c10;
+  --pv-btn-ink: #ffffff;
+  --pv-inv: #0c0c10;
+  --pv-inv-ink: #f4f4f5;
+  --pv-inv-muted: #a1a1aa;
+  --pv-inv-line: #26262c;
+  --pv-shadow: 0 1px 2px rgba(12, 12, 16, .04), 0 12px 32px -12px rgba(12, 12, 16, .14);
+  --pv-shot-shadow: 0 2px 4px rgba(12, 12, 16, .04), 0 30px 60px -24px rgba(30, 32, 60, .28);
+  /* Fondos de tarjeta: degradados apagados, casi blancos (cada fila tiene el suyo). */
+  --pv-g1: linear-gradient(140deg, #eef0fb 0%, #f5f1fa 55%, #faf4ee 100%);
+  --pv-g2: linear-gradient(140deg, #edf4f2 0%, #f1f3f8 60%, #f6f2f8 100%);
+  --pv-g3: linear-gradient(140deg, #f8f2ec 0%, #f4f1f7 55%, #eef1fa 100%);
+  --pv-g4: linear-gradient(140deg, #f0f1f6 0%, #eef3f6 100%);
+  background: var(--pv-bg);
+  color: var(--pv-ink);
+  font-family: var(--font-colon), var(--font-geist), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-feature-settings: 'cv11', 'ss01';
+  -webkit-font-smoothing: antialiased;
+  color-scheme: light;
+}
+
+html[data-theme='dark'] .pv {
+  --pv-bg: #0b0b0e;
+  --pv-bg-2: #111115;
+  --pv-card: #131318;
+  --pv-ink: #f2f2f4;
+  --pv-ink-2: #c9c9d0;
+  --pv-muted: #8d8d97;
+  --pv-line: #222229;
+  --pv-line-2: #2c2c34;
+  --pv-accent: #6cc2c2;
+  --pv-accent-soft: #12292a;
+  --pv-btn: #f2f2f4;
+  --pv-btn-ink: #0b0b0e;
+  --pv-inv: #f2f2f4;
+  --pv-inv-ink: #0b0b0e;
+  --pv-inv-muted: #5b5b64;
+  --pv-inv-line: #d9d9de;
+  --pv-shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 16px 40px -16px rgba(0, 0, 0, .7);
+  --pv-shot-shadow: 0 2px 4px rgba(0, 0, 0, .3), 0 30px 70px -24px rgba(0, 0, 0, .8);
+  --pv-g1: linear-gradient(140deg, #16172a 0%, #1a1626 55%, #1d1714 100%);
+  --pv-g2: linear-gradient(140deg, #121c1b 0%, #15171f 60%, #1b1622 100%);
+  --pv-g3: linear-gradient(140deg, #1d1712 0%, #191621 55%, #141828 100%);
+  --pv-g4: linear-gradient(140deg, #15161c 0%, #13181c 100%);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme='light']) .pv {
+    --pv-bg: #0b0b0e;
+    --pv-bg-2: #111115;
+    --pv-card: #131318;
+    --pv-ink: #f2f2f4;
+    --pv-ink-2: #c9c9d0;
+    --pv-muted: #8d8d97;
+    --pv-line: #222229;
+    --pv-line-2: #2c2c34;
+    --pv-accent: #6cc2c2;
+    --pv-accent-soft: #12292a;
+    --pv-btn: #f2f2f4;
+    --pv-btn-ink: #0b0b0e;
+    --pv-inv: #f2f2f4;
+    --pv-inv-ink: #0b0b0e;
+    --pv-inv-muted: #5b5b64;
+    --pv-inv-line: #d9d9de;
+    --pv-shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 16px 40px -16px rgba(0, 0, 0, .7);
+    --pv-shot-shadow: 0 2px 4px rgba(0, 0, 0, .3), 0 30px 70px -24px rgba(0, 0, 0, .8);
+    --pv-g1: linear-gradient(140deg, #16172a 0%, #1a1626 55%, #1d1714 100%);
+    --pv-g2: linear-gradient(140deg, #121c1b 0%, #15171f 60%, #1b1622 100%);
+    --pv-g3: linear-gradient(140deg, #1d1712 0%, #191621 55%, #141828 100%);
+    --pv-g4: linear-gradient(140deg, #15161c 0%, #13181c 100%);
+    color-scheme: dark;
+  }
+}
+
+/* El fondo del documento acompaña (sin franja crema al rebotar el scroll). */
+html:has(.pv) body { background: #ffffff; }
+html[data-theme='dark']:has(.pv) body { background: #0b0b0e; }
+@media (prefers-color-scheme: dark) { html:not([data-theme='light']):has(.pv) body { background: #0b0b0e; } }
+
+/* Capturas claras/oscuras: se muestra la del modo activo (la otra no se descarga: va con loading=lazy). */
+.pv .pv-only-dark { display: none; }
+html[data-theme='dark'] .pv .pv-only-dark { display: block; }
+html[data-theme='dark'] .pv .pv-only-light { display: none; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme='light']) .pv .pv-only-dark { display: block; }
+  html:not([data-theme='light']) .pv .pv-only-light { display: none; }
+}
+
+/* ───────── Tipografía ───────── */
+.pv-h1 { font-size: clamp(2.35rem, 6.2vw, 4.4rem); line-height: 1.02; letter-spacing: -0.045em; font-weight: 600; }
+.pv-h2 { font-size: clamp(1.85rem, 4.2vw, 3rem); line-height: 1.06; letter-spacing: -0.038em; font-weight: 600; }
+.pv-h3 { font-size: clamp(1.5rem, 3vw, 2.15rem); line-height: 1.1; letter-spacing: -0.032em; font-weight: 600; }
+.pv-lead { font-size: clamp(1.02rem, 1.6vw, 1.18rem); line-height: 1.6; color: var(--pv-ink-2); letter-spacing: -0.006em; }
+.pv-muted { color: var(--pv-muted); }
+.pv-ink2 { color: var(--pv-ink-2); }
+.pv-num { font-variant-numeric: tabular-nums; }
+
+/* ───────── Botones ───────── */
+.pv-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  height: 2.9rem; padding: 0 1.25rem; border-radius: .8rem;
+  font-size: .92rem; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap;
+  transition: transform .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.pv-btn:active { transform: translateY(1px); }
+.pv-btn:focus-visible, .pv-tab:focus-visible, .pv-icon-btn:focus-visible, .pv-link:focus-visible, .pv-faq summary:focus-visible, .pv-seg button:focus-visible {
+  outline: 2px solid var(--pv-accent); outline-offset: 2px;
+}
+.pv-btn-dark { background: var(--pv-btn); color: var(--pv-btn-ink); }
+.pv-btn-dark:hover { box-shadow: 0 8px 22px -10px rgba(12, 12, 16, .55); }
+.pv-btn-line { border: 1px solid var(--pv-line-2); color: var(--pv-ink); background: var(--pv-card); }
+.pv-btn-line:hover { border-color: var(--pv-ink-2); }
+.pv-btn-sm { height: 2.4rem; padding: 0 .95rem; font-size: .85rem; border-radius: .7rem; }
+.pv-btn .pv-arrow { transition: transform .2s ease; }
+.pv-btn:hover .pv-arrow { transform: translateX(2px); }
+.pv-icon-btn {
+  width: 2.4rem; height: 2.4rem; border-radius: .7rem; display: inline-flex; align-items: center; justify-content: center;
+  color: var(--pv-ink-2); border: 1px solid var(--pv-line); background: var(--pv-card);
+}
+.pv-icon-btn:hover { color: var(--pv-ink); border-color: var(--pv-line-2); }
+.pv-link { color: var(--pv-ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--pv-line-2); text-underline-offset: 4px; }
+.pv-link:hover { text-decoration-color: var(--pv-ink); }
+
+/* ───────── Encabezado ───────── */
+.pv-header { position: sticky; top: 0; z-index: 60; transition: background-color .25s ease, border-color .25s ease; border-bottom: 1px solid transparent; }
+.pv-header[data-scrolled='true'] {
+  background: color-mix(in srgb, var(--pv-bg) 92%, transparent);
+  backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  border-bottom-color: var(--pv-line);
+}
+.pv-nav a { font-size: .88rem; color: var(--pv-ink-2); font-weight: 500; transition: color .15s ease; }
+.pv-nav a:hover { color: var(--pv-ink); }
+
+/* ───────── Pestañas segmentadas (estilo «VIDEO / SESIONES / API») ───────── */
+.pv-seg { display: inline-flex; padding: 4px; gap: 2px; border-radius: 999px; background: var(--pv-bg-2); border: 1px solid var(--pv-line); max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.pv-seg::-webkit-scrollbar { display: none; }
+.pv-seg button, .pv-tab {
+  position: relative; overflow: hidden; height: 2.25rem; padding: 0 1rem; border-radius: 999px;
+  font-size: .74rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--pv-muted); white-space: nowrap;
+  transition: color .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+.pv-seg button:hover, .pv-tab:hover { color: var(--pv-ink); }
+.pv-seg button[aria-pressed='true'], .pv-tab[aria-selected='true'] { background: var(--pv-card); color: var(--pv-ink); box-shadow: 0 1px 2px rgba(0, 0, 0, .06), 0 0 0 1px var(--pv-line); }
+/* Barra de avance de la pestaña activa (solo mientras pasa sola). */
+.pv-tab-bar { position: absolute; left: 14px; right: 14px; bottom: 5px; height: 2px; border-radius: 2px; background: var(--pv-line); overflow: hidden; }
+.pv-tab-bar > i { display: block; height: 100%; width: 100%; background: var(--pv-ink); transform-origin: left; transform: scaleX(0); animation: pv-progress var(--pv-dur, 6s) linear forwards; }
+@keyframes pv-progress { to { transform: scaleX(1); } }
+
+/* ───────── Marco de navegador y celular ───────── */
+.pv-frame { border-radius: 14px; overflow: hidden; background: var(--pv-card); border: 1px solid var(--pv-line); box-shadow: var(--pv-shot-shadow); }
+.pv-frame-bar { height: 34px; display: flex; align-items: center; gap: 6px; padding: 0 12px; border-bottom: 1px solid var(--pv-line); background: var(--pv-bg-2); }
+.pv-frame-bar > i { width: 9px; height: 9px; border-radius: 99px; background: var(--pv-line-2); }
+.pv-frame-url { margin: 0 auto; transform: translateX(-18px); font-size: 11.5px; color: var(--pv-muted); background: var(--pv-card); border: 1px solid var(--pv-line); border-radius: 7px; padding: 2px 12px; max-width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pv-frame img, .pv-phone img { display: block; width: 100%; height: auto; }
+.pv-phone { width: 100%; border-radius: 26px; padding: 7px; background: #0c0c10; box-shadow: var(--pv-shot-shadow); border: 1px solid #2a2a30; }
+.pv-phone > div { border-radius: 20px; overflow: hidden; background: #fff; }
+
+/* Escenario del hero: las capturas se cruzan con un fundido. */
+.pv-stage { display: grid; }
+.pv-stage > * { grid-area: 1 / 1; transition: opacity .6s ease, transform .8s cubic-bezier(.2, .7, .2, 1); }
+.pv-stage > [data-on='false'] { opacity: 0; transform: translateY(8px) scale(.995); pointer-events: none; }
+.pv-stage > [data-on='true'] { opacity: 1; transform: none; }
+/* Las capturas no miden todas igual: en el hero se encuadran todas a 16:10 para que el cambio de pestaña no salte. */
+.pv-stage .pv-frame img { aspect-ratio: 16 / 10; object-fit: cover; object-position: center top; }
+.pv-glow { position: absolute; inset: 8% 4% -6%; border-radius: 40px; background: var(--pv-g1); filter: blur(2px); z-index: 0; }
+
+/* ───────── Video del anuncio ───────── */
+.pv-video { position: relative; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; background: #0c0c10; border: 1px solid var(--pv-line); box-shadow: var(--pv-shot-shadow); }
+.pv-video-cover { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: pointer; }
+.pv-video-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2, .7, .2, 1); }
+.pv-video-cover:hover img { transform: scale(1.015); }
+.pv-video-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12, 12, 16, 0) 45%, rgba(12, 12, 16, .55) 100%); }
+.pv-video-play {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 76px; height: 76px; border-radius: 999px; display: grid; place-items: center; padding-left: 4px;
+  background: rgba(255, 255, 255, .92); color: #0c0c10; box-shadow: 0 10px 30px -8px rgba(0, 0, 0, .45);
+  transition: transform .25s ease, background-color .25s ease;
+}
+.pv-video-cover:hover .pv-video-play { transform: translate(-50%, -50%) scale(1.06); background: #ffffff; }
+.pv-video-cover:focus-visible { outline: 3px solid var(--pv-accent); outline-offset: -3px; }
+.pv-video-label { position: absolute; left: 20px; bottom: 16px; color: #ffffff; font-size: .92rem; text-shadow: 0 1px 8px rgba(0, 0, 0, .4); }
+@media (max-width: 640px) { .pv-video-play { width: 60px; height: 60px; } .pv-video-label { left: 14px; bottom: 10px; font-size: .82rem; } .pv-video { border-radius: 12px; } }
+
+/* Fotos «en el día a día» (del video): retrato con su frase. */
+.pv-life img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 16px; }
+
+/* Tarjeta de producto flotante sobre el inventario. */
+.pv-float { position: absolute; background: var(--pv-card); border: 1px solid var(--pv-line); border-radius: 16px; box-shadow: var(--pv-shadow); }
+
+/* ───────── Tarjetas ───────── */
+.pv-card { background: var(--pv-card); border: 1px solid var(--pv-line); border-radius: 1.25rem; }
+.pv-panel { border-radius: 1.75rem; padding: clamp(1rem, 3.2vw, 2.5rem); position: relative; overflow: hidden; }
+.pv-g1 { background: var(--pv-g1); }
+.pv-g2 { background: var(--pv-g2); }
+.pv-g3 { background: var(--pv-g3); }
+.pv-g4 { background: var(--pv-g4); }
+.pv-check { color: var(--pv-ink); flex-shrink: 0; }
+.pv-hr { height: 1px; background: var(--pv-line); border: 0; }
+
+/* Franja invertida («Todo incluido»). */
+.pv-inv { background: var(--pv-inv); color: var(--pv-inv-ink); }
+.pv-inv .pv-inv-muted { color: var(--pv-inv-muted); }
+.pv-inv .pv-inv-line { border-color: var(--pv-inv-line); }
+
+/* ───────── Precios ───────── */
+.pv-price-card { display: flex; flex-direction: column; border-radius: 1.25rem; padding: 1.6rem; background: var(--pv-card); border: 1px solid var(--pv-line); transition: border-color .2s ease, transform .3s ease; }
+.pv-price-card:hover { border-color: var(--pv-line-2); }
+.pv-price-card[data-hl='true'] { background: var(--pv-inv); color: var(--pv-inv-ink); border-color: var(--pv-inv); box-shadow: var(--pv-shadow); }
+.pv-price-card[data-hl='true'] .pv-muted { color: var(--pv-inv-muted); }
+.pv-price-card[data-hl='true'] .pv-hr { background: var(--pv-inv-line); }
+.pv-price-card[data-hl='true'] .pv-check { color: var(--pv-inv-ink); }
+.pv-price-card[data-hl='true'] .pv-btn-dark { background: var(--pv-inv-ink); color: var(--pv-inv); }
+.pv-price-card[data-hl='true'] .pv-pill { background: color-mix(in srgb, var(--pv-inv-ink) 12%, transparent); color: var(--pv-inv-ink); }
+.pv-pill { display: inline-flex; align-items: center; gap: .35rem; height: 1.6rem; padding: 0 .65rem; border-radius: 999px; font-size: .72rem; font-weight: 600; background: var(--pv-bg-2); color: var(--pv-ink-2); border: 1px solid var(--pv-line); }
+.pv-price-card[data-hl='true'] .pv-pill { border-color: transparent; }
+.pv-price { font-size: clamp(2.5rem, 5vw, 3.1rem); font-weight: 600; letter-spacing: -0.045em; line-height: 1; }
+/* El número cambia al pasar de mensual a anual: un fundido corto. */
+.pv-swap { animation: pv-swap .35s ease; }
+@keyframes pv-swap { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* ───────── Tabla comparativa ───────── */
+.pv-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .9rem; }
+.pv-table th, .pv-table td { padding: .85rem .9rem; border-bottom: 1px solid var(--pv-line); text-align: center; vertical-align: middle; }
+.pv-table th:first-child, .pv-table td:first-child { text-align: left; position: sticky; left: 0; background: var(--pv-bg-2); z-index: 1; min-width: 11.5rem; }
+.pv-table thead th { font-weight: 600; font-size: .88rem; position: sticky; top: 0; }
+.pv-table tbody th { font-weight: 500; color: var(--pv-ink-2); }
+.pv-table td { color: var(--pv-ink); white-space: nowrap; }
+.pv-table .pv-col-hl { background: color-mix(in srgb, var(--pv-ink) 2.5%, transparent); }
+.pv-table .pv-group th { padding-top: 1.6rem; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--pv-muted); font-weight: 600; }
+.pv-scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* ───────── Preguntas ───────── */
+.pv-faq details { border-bottom: 1px solid var(--pv-line); }
+.pv-faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.15rem 0; font-weight: 600; letter-spacing: -0.012em; font-size: 1.02rem; }
+.pv-faq summary::-webkit-details-marker { display: none; }
+.pv-faq summary .pv-plus { transition: transform .25s ease; color: var(--pv-muted); flex-shrink: 0; }
+.pv-faq details[open] summary .pv-plus { transform: rotate(45deg); }
+.pv-faq details > div { padding: 0 2.5rem 1.25rem 0; color: var(--pv-ink-2); line-height: 1.65; }
+.pv-faq details[open] > div { animation: pv-swap .3s ease; }
+
+/* ───────── Aparecer al bajar ───────── */
+/* Solo con JavaScript (el script del inicio pone html): sin JS, todo se ve quieto. */
+html .pv [data-rv] { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .9s cubic-bezier(.2, .7, .2, 1); transition-delay: var(--rv-d, 0ms); }
+html .pv [data-rv].is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pv *, .pv *::before, .pv *::after { animation: none !important; transition: none !important; }
+  html .pv [data-rv] { opacity: 1; transform: none; }
+  .pv-tab-bar { display: none; }
+}

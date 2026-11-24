@@ -6,7 +6,7 @@ tags: ["Power BI", "Datos", "Pymes"]
 cover: "data"
 ---
 
-Una pregunta que recibo seguido: "quiero un panel de Power BI para ver mi inventario, ¿me lo puedes hacer con lo que ya tengo en Excel?" La respuesta casi siempre depende de cómo está estructurada esa información, no de si Power BI puede o no hacerlo. Un panel bonito no arregla datos desordenados. Aquí te explico cómo organizar tu inventario desde la base, para que cualquier reporte que construyas después realmente sirva.
+Una pregunta que recibo seguido: "quiero un panel de Power BI para ver mi inventario, ¿me lo podés hacer con lo que ya tengo en Excel?" La respuesta casi siempre depende de cómo está estructurada esa información, no de si Power BI puede o no hacerlo. Un panel bonito no arregla datos desordenados. Aquí te explico cómo organizar tu inventario desde la base, para que cualquier reporte que construyas después realmente sirva.
 
 ## El problema más común: todo en una sola celda
 
@@ -34,6 +34,6 @@ Las fechas escritas de forma inconsistente (algunas como "15/03/2026", otras com
 
 ## No hace falta empezar perfecto, pero sí empezar ordenado
 
-No necesitas un sistema de inventario de nivel corporativo para sacarle valor a Power BI. Incluso una hoja de Excel simple, pero bien estructurada desde el inicio, puede alimentar reportes genuinamente útiles: qué productos rotan más, en qué meses baja la demanda, o qué proveedor está generando más costo relativo.
+No necesitás un sistema de inventario de nivel corporativo para sacarle valor a Power BI. Incluso una hoja de Excel simple, pero bien estructurada desde el inicio, puede alimentar reportes genuinamente útiles: qué productos rotan más, en qué meses baja la demanda, o qué proveedor está generando más costo relativo.
 
-**¿Tu inventario actual está en un formato difícil de aprovechar?** [Escríbeme por WhatsApp](https://wa.me/message/U3ZXMIXGALZJI1) y revisamos cómo ordenarlo antes de construir cualquier reporte.
+**¿Tu inventario actual está en un formato difícil de aprovechar?** [Escribinos por WhatsApp](https://wa.me/message/U3ZXMIXGALZJI1) y revisamos cómo ordenarlo antes de construir cualquier reporte.
